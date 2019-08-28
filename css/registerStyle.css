@@ -1,0 +1,107 @@
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items :center;
+    font-family: Dotum,'돋움',Helvetica,sans-serif;
+    background :#f5f6f7;
+}
+
+.main {
+    width: 460px;
+}
+
+.main > div{
+    display: flex;
+    flex-direction: column;
+}
+
+#register_text {
+    color: #2cb400;
+    margin-top: 10px;
+}
+
+.main > div > label {
+    font-size: 14px;
+    font-weight: 700;
+    margin : 19px 0 8px;
+}
+
+.text_input > input, .text_input > select {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input,select {
+    height: 50px;
+    border: solid 1px #dadada;
+    padding: 10px;
+    background: #fff;
+}
+
+.birth_wrap > input, .birth_wrap > select {
+    width: 32%;
+    box-sizing: border-box;
+}
+
+.birth_wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.terms_div {
+    display: flex;
+    flex-direction: row;
+}
+
+.terms_div > input,a {
+    margin-block-start: 2em;
+    margin-block-end: 0;
+    height: 30px;
+}
+
+select,input[type=checkbox] {
+    border-radius: 0px; 
+}
+
+input[type=checkbox] {
+  -ms-transform: scale(1.3); /* IE */
+  -moz-transform: scale(1.3); /* FF */
+  -webkit-transform: scale(1.3); /* Safari and Chrome */
+  -o-transform: scale(1.3); /* Opera */
+  padding: 5px;
+  margin-left: 7px;
+}
+
+.terms_div > a {
+    font-size: 14px;
+    color: black;
+}
+
+.main > .green_btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.green_btn > input {
+    width: 49%;
+    height: 60px;
+    box-sizing: border-box;
+    font-size: 18px;
+    background-color: #2cb400;
+    color: white;
+}
+
+/* .pop-layer {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 410px;
+    height: auto;
+    background-color: #fff;
+    border: 5px solid #3571B5;
+    z-index: 10;
+} */
+
