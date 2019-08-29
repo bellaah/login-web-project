@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <script type="text/javascript" src="js/registerScript.js"></script>
+    <link href="css/reset.css" rel="stylesheet">
     <link href="css/registerStyle.css" rel="stylesheet">
 </head>
 <body>
@@ -14,11 +14,13 @@
         <div class="text_input">
             <label for="id_input">아이디<br/></label>
             <input type="text" name="id" id="id_input">
+            <span id="id_check"></span>
         </div>
 
         <div class="text_input">
             <label for="pwd_input">비밀번호<br/></label>
             <input type="text" name="password" id="pwd_input">
+            <span id="pwd_check"></span>
         </div>
 
         <div class="text_input">
@@ -79,10 +81,8 @@
         </div>
 
         <div class="terms">
-            <div class="terms_div">
-                    <a href="#terms_layer">약관에 동의합니다. </a>
-                <input type="checkbox" name="terms_check">
-            </div>
+            <a href="#terms_layer">약관에 동의합니다. </a>
+            <input type="checkbox" name="terms_check">
         </div>
 
         <!-- <div id="terms_layer" class="pop-layer">
@@ -111,4 +111,6 @@
         
     </footer>
 </body>
+<script type="text/javascript" src="js/registerPwd.js"></script>
+<script type="text/javascript" src="js/registerID.js"></script>
 </html>
