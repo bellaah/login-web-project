@@ -3,6 +3,10 @@ const pwdListener = {
         const input = document.querySelector("#pwd_input");
         input.addEventListener("input", () => {
             this.pwdCheck(input.value);
+            const pwdConfirm = document.querySelector("#pwd_confirm_input");
+            if(pwdConfirm.value !== ''){
+                pwdConfirmListener.pwdConfirm(pwdConfirm.value);
+            }
         })
     },
     pwdCheck(pwdInput) {
