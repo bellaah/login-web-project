@@ -120,10 +120,12 @@ input[type=checkbox] {
 } */
 
 .red_text {
+    font-size: 0.8rem;
     color : red;
 }
 
 .green_text {
+    font-size: 0.8rem;
     color : #2cb400;
 }
 
