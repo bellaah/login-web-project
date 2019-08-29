@@ -69,12 +69,14 @@
 
         <div class="text_input">
             <label for="email_input">이메일<br/></label>
-            <input type="text" name="email" id="email_input">
+            <input type="email" name="email" id="email_input">
+            <span id="email_check" class="red_text"></span>
         </div>
 
         <div class="text_input">
             <label for="phone_input">휴대전화<br/></label>
-            <input type="text" name="phone" id="phone_input">
+            <input type="text" name="phone" id="phone_input" placeholder="- 없이 입력해주세요. 예)01012341234">
+            <span id="phone_check" class="red_text"></span>
         </div>
 
         <div class="text_input">
@@ -116,4 +118,6 @@
 <script type="text/javascript" src="js/idCheck.js"></script>
 <script type="text/javascript" src="js/pwdCheck.js"></script>
 <script type="text/javascript" src="js/birthdayCheck.js"></script>
+<script type="text/javascript" src="js/emailCheck.js"></script>
+<script type="text/javascript" src="js/phoneCheck.js"></script>
 </html>
