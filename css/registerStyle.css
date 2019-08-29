@@ -46,7 +46,7 @@ input:focus,select:focus {
     box-sizing: border-box;
 }
 
-input,select {
+input,select,.tag_div {
     height: 3.3rem;
     border: solid 1px #dadada;
     padding: 0.5rem;
@@ -105,19 +105,23 @@ input[type=checkbox] {
     color: white;
 }
 
-
-
-/* .pop-layer {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 410px;
-    height: auto;
-    background-color: #fff;
-    border: 5px solid #3571B5;
-    z-index: 10;
-} */
+::placeholder { 
+    color: #8e8e8e;
+    opacity: 1;
+  }
+  
+#search_layer {
+    position:absolute; 
+    top:30%; 
+    left:30%; 
+    text-align:center;
+    z-index:999;
+    display:none; 
+    width:20%; 
+    height:fit-content;
+    background: #dadada;
+    display: 'none';
+}
 
 .red_text {
     font-size: 0.8rem;
@@ -127,5 +131,49 @@ input[type=checkbox] {
 .green_text {
     font-size: 0.8rem;
     color : #2cb400;
+}
+
+.tag {
+    border-radius: 0.3rem;
+    background-color:#e9ecef;
+    border: solid 1px #868e96;
+    width: fit-content;
+    height: fit-content;
+    padding: 0 0.2rem;
+    margin : 0 0.2rem;
+    color: #495057;
+    font-size: 0.8rem;
+}
+
+.tag_list {
+    display: flex;
+    flex-direction: row;
+}
+
+.tag_div {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#interest_input {
+    border: none;
+    height: 2rem;
+    width: 100%;
+}
+
+#interest_input:focus {
+
+}
+
+.tag_btn {
+    margin: 0.1rem;
+    border-radius: 50px;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color:#e9ecef;
+    border: solid 1px #868e96;
+    color:#495057;
 }
 

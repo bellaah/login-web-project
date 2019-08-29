@@ -81,28 +81,22 @@
 
         <div class="text_input">
             <label for="interest_input">관심사<br/></label>
-            <input type="text" name="interest" id="interest_input">
+            <div class="tag_div">
+                <div class="tag_list"></div>
+                <input type="text" name="interest" id="interest_input">
+            </div>
+            <span id="interest_check" class="red_text"></span>
         </div>
 
         <div class="terms">
-            <a href="#terms_layer">약관에 동의합니다. </a>
+            <a href='javascript:popLayer()'>약관에 동의합니다. </a>
             <input type="checkbox" name="terms_check">
         </div>
 
-        <!-- <div id="terms_layer" class="pop-layer">
-            <div class="pop-container">
-                 <div class="pop-conts">
-                    <p class="ctxt mb20">Thank you.<br>
-                    Your registration was submitted successfully.<br>
-                        Selected invitees will be notified by e-mail on JANUARY 24th.<br><br>
-                        Hope to see you soon!
-                    </p>
-                    <div class="btn-r">
-                        <a href="#" class="btn-layerClose">Close</a>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+        <div id="search_layer">
+         ...  
+         <button onclick="javascript:closeLayer()">
+        </div>
 
         <div class="green_btn">
             <input type="submit" value="초기화">
@@ -120,4 +114,6 @@
 <script type="text/javascript" src="js/birthdayCheck.js"></script>
 <script type="text/javascript" src="js/emailCheck.js"></script>
 <script type="text/javascript" src="js/phoneCheck.js"></script>
+<script type="text/javascript" src="js/interestCheck.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
 </html>
