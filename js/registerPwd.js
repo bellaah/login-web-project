@@ -25,6 +25,27 @@ const pwdListener = {
         }
     }
 }
+
+const pwdConfirmListener = {
+    registerEvent() {
+        const input = document.querySelector("#pwd_confirm_input");
+        input.addEventListener("input", () => {
+            this.pwdConfirm(input.value);
+        })
+    },
+    pwdConfirm(pwdConfirmInput) {
+        const pwdConfirmSpan = document.querySelector("#pwd_confirm_check");
+        const pwdInput = document.querySelector("#pwd_input");
+        if(pwdConfirmInput !== pwdInput.value){
+            pwdConfirmSpan.innerHTML = "비밀번호가 일치하지 않습니다.";
+            pwdConfirmSpan.className = "red_text";
+        }else{
+            pwdConfirmSpan.innerHTML = "비밀번호가 일치합니다.";
+            pwdConfirmSpan.className = "green_text";
+        }
+    }
+}
   
 pwdListener.registerEvent();
+pwdConfirmListener.registerEvent();
 
