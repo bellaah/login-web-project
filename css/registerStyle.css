@@ -112,6 +112,7 @@ input[type=checkbox] {
   
 #pop_layer {
     padding: 1rem 2rem;
+    overflow-y: scroll;
     position: fixed;
     text-align:center;
     z-index:999;
@@ -221,4 +222,10 @@ pre {
 
 #exit_b {
     font-size: 1rem;
+}
+
+#terms_check {
+    background-color: initial;
+    cursor: default;
+    -webkit-appearance: checkbox;
 }

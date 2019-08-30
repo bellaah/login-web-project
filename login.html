@@ -90,13 +90,13 @@
 
         <div class="terms">
             <a href='javascript:popLayer()'>약관에 동의합니다. </a>
-            <input type="checkbox" name="terms_check">
+            <input type="checkbox" name="terms_check" id="terms_check" disabled="true">
         </div>
 
         <div id="pop_layer">
             <button onclick="closeLayer()" id="exit_btn"><b id="exit_b">X</b></button>
             <b id="terms_head">개인 정보 수집 및 이용에 대한 안내</b>
-            <pre id="terms_text">
+            <pre id="terms_text" onscroll="scrolled(this)">
 정보통신망법 규정에 따라 부스트캠프에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
 
 1. 수집하는 개인정보의 항목
@@ -132,13 +132,13 @@
 보존 이유 : 통신비밀보호법
 보존 기간 : 3개월
             </pre>
-            <button onclick="agreeLayer()" id="agree_btn">동의</button>
+            <button type="button" onclick="agreeLayer()" id="agree_btn" disabled="true">동의</button>
         </div>
         <div id="backgound_div"></div>
 
         <div class="green_btn">
-            <input type="submit" value="초기화">
-            <input type="reset" value="가입하기">
+            <input type="reset" value="초기화">
+            <input type="submit" value="가입하기" >
         </div>
 
     </form>

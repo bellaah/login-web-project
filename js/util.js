@@ -1,6 +1,7 @@
+const layer =  document.querySelector("#pop_layer");
+const backgroundDiv =  document.querySelector("#backgound_div");
+
 const popLayer = () => {
-    const layer =  document.querySelector("#pop_layer");
-    const backgroundDiv =  document.querySelector("#backgound_div");
     layer.style.display = 'flex';
     layer.style.left = (window.innerWidth-layer.clientWidth)/2+"px";
     layer.style.top = (window.innerHeight-layer.clientHeight)/2+"px";
@@ -9,7 +10,7 @@ const popLayer = () => {
 }
 
 const closeLayer = () => {
-    document.querySelector("#search_layer").style.display='none';
+    document.querySelector("#pop_layer").style.display='none';
 }
 
 const focusIn = () => {
@@ -20,9 +21,24 @@ const focusOut = () => {
     document.querySelector(".tag_div").style.borderColor='#dadada';
 }
 
+const agreeLayer = () => {
+    const checkBtn =  document.querySelector("#terms_check");
+    checkBtn.disabled = false;
+    checkBtn.checked = true;
+    layer.style.display = 'none';
+    backgroundDiv .style.display = 'none';
+}
+
 const RemoveItself = (elem) => {
     let item = elem.parentNode;
     let parent = item.parentNode;
     parent.removeChild(item);
+}
+
+const scrolled = (obj) => {
+    const agreeBtn =  document.querySelector("#agree_btn");
+    if(obj.offsetHeight + obj.scrollTop >= obj.scrollHeight){
+        agreeBtn.disabled = false;
+    }
 }
 
