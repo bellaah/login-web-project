@@ -4,8 +4,10 @@ const interestListener = {
         input.addEventListener("input", () => {
             this.interestCheck(input);
         })
-        document.addEventListener("keydown", (e) =>{
-            this.back();
+        input.addEventListener("keydown", (event) =>{
+            if(input.value === ""){
+                this.back(event);
+            }
         })
     },
     interestCheck(interestInput) {
@@ -14,7 +16,7 @@ const interestListener = {
 
         if(interestInput.value[interestInput.value.length-1] === ","){
             let tag = interestInput.value.substring(0,interestInput.value.length-1);
-            tagList.insertAdjacentHTML('beforeend',`<p class="tag"><b>${tag}</b><button class="tag_btn">X</button></p>`);
+            tagList.insertAdjacentHTML('beforeend',`<span class="tag"><p>${tag}</p><button class="tag_btn" onclick="RemoveItself(this)">X</button></span>`);
             interestInput.value = "";
         }
         
@@ -25,8 +27,14 @@ const interestListener = {
         }
 
     },
-    back(e){
-        
+    back(event){
+        const interestInput = document.querySelector("#interest_input");
+        if (event.keyCode == 8 || event.keyCode == 64) {
+            const tagList = document.querySelector(".tag_list");
+            const lastTagValue = tagList.lastChild.firstChild.innerHTML;
+            tagList.removeChild(tagList.lastChild);
+            interestInput.value = lastTagValue + " " +interestInput.value;
+        }
     }
 }
 
