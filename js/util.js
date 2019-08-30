@@ -1,5 +1,11 @@
 const popLayer = () => {
-    document.querySelector("#search_layer").style.display='inline';
+    const layer =  document.querySelector("#pop_layer");
+    const backgroundDiv =  document.querySelector("#backgound_div");
+    layer.style.display = 'flex';
+    layer.style.left = (window.innerWidth-layer.clientWidth)/2+"px";
+    layer.style.top = (window.innerHeight-layer.clientHeight)/2+"px";
+    backgroundDiv.style.width = window.innerWidth+"px";
+    backgroundDiv.style.height = window.innerHeight+"px";
 }
 
 const closeLayer = () => {

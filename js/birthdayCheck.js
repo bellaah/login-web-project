@@ -15,6 +15,7 @@ const birthListener = {
     },
     yearCheck(yearInput) {
         const birthSpan = document.querySelector("#birth_check");
+        let date = new Date();
         if(new RegExp(/[^0-9]/g).test(yearInput.value)){
             birthSpan.innerHTML = "태어난 년도 4자리를 정확하게 입력하세요.";
         }else if(yearInput.value.length >= 4){
