@@ -1,4 +1,4 @@
-# 멤버십 WEEK1 - 로그인과 회원가입 저장소 (day2)
+# 멤버십 WEEK1 - 로그인과 회원가입 저장소 (day3)
 
 ### idCheck.js
 - #id_input에 input이 발생하면 listener가 idCheck라는 메서드를 호출한다.
@@ -32,4 +32,4 @@
 - 그 분리는 tagList라는 div에 <p>태그로 ,전의 문자열을 넣는 것이다.
 
 ### util.js
-- 팝업 레이어의 기능을 완성시킬 예정이다.
+- 팝업 레이어 기능을 돕는 function들로 구성되었다.
