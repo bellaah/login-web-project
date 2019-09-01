@@ -96,6 +96,9 @@ const birthChecker = {
         const birthSpan = document.querySelector("#birth_check");
         let calander = [31,29,31,30,31,30,31,31,30,31,30,31];
         const monthInput = document.querySelector("#month_input");
+        if(new RegExp(/[^0-9]/g).test(dayInput.value)){
+            birthSpan.innerHTML = "숫자만 입력가능합니다.";
+        }
         if(monthInput.value === "월"){
             return;
         }else if(calander[monthInput.value-1] < dayInput.value){

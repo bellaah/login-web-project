@@ -1,4 +1,4 @@
-body {
+#register {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -7,7 +7,7 @@ body {
     background :#f5f6f7;
 }
 
-.main {
+.register_form {
     width: 460px;
 }
 
@@ -15,7 +15,7 @@ span {
     margin-top : 0.3rem;
 }
 
-.main > div{
+.register_form > div{
     display: flex;
     flex-direction: column;
     height: auto;
@@ -35,7 +35,7 @@ input:focus,select:focus{
     margin-top: 2rem;
 }
 
-.main > div > label {
+.register_form > div > label {
     font-size: 1rem;
     font-weight: 700;
     margin : 1rem 0 0.5rem;
@@ -63,7 +63,7 @@ input,select,.tag_div {
     justify-content: space-between;
 }
 
-.main > .terms {
+.register_form > .terms {
     height: 3rem;
     display: flex;
     flex-direction: row;
@@ -90,15 +90,15 @@ input[type=checkbox] {
     color: black;
 }
 
-.main > .green_btn {
+.register_form > .green_btn {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.green_btn > input {
+.green_btn > input, .green_btn > button {
     width: 49%;
-    height: 60px;
+    height: 4rem;
     box-sizing: border-box;
     font-size: 1rem;
     background-color: #2cb400;
@@ -229,4 +229,27 @@ pre {
     background-color: initial;
     cursor: default;
     -webkit-appearance: checkbox;
+}
+
+#reset_btn {
+    display: none;
+}
+
+#main_div > span {
+    font-size: 5rem;
+    align-self: center;
+}
+
+#register_footer {
+    margin: 2rem 0 1rem 0;
+    align-self: center;
+    font-size: 1rem;
+    color: #495057;
+}
+
+#main {
+    display: none;
+    position: relative;
+    flex-direction: column;
+    align-items :center;
 }

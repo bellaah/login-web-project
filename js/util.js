@@ -1,5 +1,6 @@
 const layer =  document.querySelector("#pop_layer");
 const backgroundDiv =  document.querySelector("#backgound_div");
+const tagDiv = document.querySelector(".tag_div");
 
 const popLayer = () => {
     layer.style.display = 'flex';
@@ -10,15 +11,15 @@ const popLayer = () => {
 }
 
 const closeLayer = () => {
-    document.querySelector("#pop_layer").style.display='none';
+    layer.style.display='none';
 }
 
 const focusIn = () => {
-    document.querySelector(".tag_div").style.borderColor='#2cb400';
+    tagDiv.style.borderColor='#2cb400';
 }
 
 const focusOut = () => {
-    document.querySelector(".tag_div").style.borderColor='#dadada';
+    tagDiv.style.borderColor='#dadada';
 }
 
 const agreeLayer = () => {
@@ -26,7 +27,7 @@ const agreeLayer = () => {
     checkBtn.disabled = false;
     checkBtn.checked = true;
     layer.style.display = 'none';
-    backgroundDiv .style.display = 'none';
+    backgroundDiv.style.display = 'none';
 }
 
 const RemoveItself = (elem) => {
@@ -40,5 +41,32 @@ const scrolled = (obj) => {
     if(obj.offsetHeight + obj.scrollTop >= obj.scrollHeight){
         agreeBtn.disabled = false;
     }
+}
+
+const resetTag = () => {
+    const redSpan = document.querySelectorAll(".red_text");
+    const greenSpan = document.querySelectorAll(".green_text");
+    const tagList = document.querySelector(".tag_list");
+
+    while (tagList.hasChildNodes()){
+        tagList.removeChild(tagList.firstChild); 
+    } 
+
+    redSpan.forEach(elem => {
+        elem.innerHTML = "";
+    });
+    greenSpan.forEach(elem => {
+        elem.innerHTML = "";
+    });
+
+}
+
+const moveMain = () =>{
+    console.log("$");
+    const registerDiv = document.querySelectorAll("#register");
+    const mainDiv = document.querySelectorAll("#main");
+
+    registerDiv[0].style.display = 'none';
+    mainDiv[0].style.display = 'flex';
 }
 
