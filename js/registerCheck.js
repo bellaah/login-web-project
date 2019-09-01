@@ -134,7 +134,7 @@ const interestChecker = {
         if(interestInput.value[interestInput.value.length-1] === ","){
             if(interestInput.value.length > 1){
                 let tag = interestInput.value.substring(0,interestInput.value.length-1);
-                tagList.insertAdjacentHTML('beforeend',`<span class="tag"><span>${tag}</span><button class="tag_btn" onclick="RemoveItself(this)">X</button></span>`);
+                tagList.insertAdjacentHTML('beforeend',`<div class="tag"><span>${tag}</span><button class="tag_btn" onclick="RemoveItself(this)">X</button></div>`);
             }
             interestInput.value = "";
         }

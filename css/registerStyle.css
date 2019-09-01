@@ -18,7 +18,7 @@ span {
 .main > div{
     display: flex;
     flex-direction: column;
-    height: 7rem;
+    height: auto;
 }
 
 input, select {
@@ -137,28 +137,29 @@ input[type=checkbox] {
     border-radius: 0.3rem;
     background-color:#e9ecef;
     border: solid 1px #868e96;
-    padding: 0 0.2rem;
+    padding: 0.2rem;
     margin : 0 0.2rem;
     color: #495057;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    display : inline-block;
+    width: max-content;
 }
 
 .tag_list {
-    display: contents;
-
+    display: inline-flex;
 }
 
 .tag_div {
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    display: inline-flex;
+    height: 3.3rem;
+    overflow: scroll;
+    box-sizing: border-box;
 }
 
 #interest_input {
     border: none;
-    height: 2rem;
-    width: 100%;
+    height: 1rem;
+    width: -webkit-fill-available;
 }
 
 .tag_btn {
