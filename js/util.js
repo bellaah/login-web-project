@@ -1,4 +1,8 @@
 const tagDiv = document.querySelector(".tag_div");
+const registerDiv = document.querySelector("#register");
+const mainDiv = document.querySelector("#main");
+const loginDiv = document.querySelector("#login");
+const myStorage = window.localStorage;
 
 const focusIn = () => {
     tagDiv.style.borderColor='#2cb400';
@@ -47,34 +51,24 @@ const resetSpan = () => {
 }
 
 const moveMain = () =>{
-    const registerDiv = document.querySelector("#register");
-    const mainDiv = document.querySelector("#main");
-    const loginDiv = document.querySelector("#login");
-
-    registerDiv.style.display = 'none';
-    loginDiv.style.display = 'none';
-    mainDiv.style.display = 'flex';
+    const mainSpan = document.querySelector("#main_text");
+    mainSpan.innerHTML = `Hello! ${myStorage.getItem('name')}`;
+    movePage('none','none','flex');
 }
 
 const moveRegister = () =>{
-    const registerDiv = document.querySelector("#register");
-    const mainDiv = document.querySelector("#main");
-    const loginDiv = document.querySelector("#login");
-
-    registerDiv.style.display = 'flex';
-    loginDiv.style.display = 'none';
-    mainDiv.style.display = 'none';
+    movePage('flex','none','none');
 }
 
 const moveLogin = () =>{
-    const registerDiv = document.querySelector("#register");
-    const mainDiv = document.querySelector("#main");
-    const loginDiv = document.querySelector("#login");
-
-    registerDiv.style.display = 'none';
-    loginDiv.style.display = 'flex';
-    mainDiv.style.display = 'none';
+    movePage('none','flex','none');
 }
+
+ const movePage = (registerDisplay,loginDisplay,mainDisplay) => {
+    registerDiv.style.display = registerDisplay;
+    loginDiv.style.display = loginDisplay;
+    mainDiv.style.display = mainDisplay;
+ }
 
 const removeChildAll = (parent) => {
     while (parent.hasChildNodes()){
@@ -93,6 +87,7 @@ const termsAgree = () => {
 const checkAll = () => {
     let returnValue = checkInputAll();
     if(returnValue.length == 0){   //input 모두 만족
+        localStore();
         moveMain();
     }else{  //input 빈 항목이 있거나 red text가 떴을 경우
         registerLayer(returnValue);
@@ -125,5 +120,10 @@ const loginClick = () => {
     if(loginIdInput.value !== "" && loginPwdInput.value !== ""){
         moveMain();
     }
+}
+
+const localStore = () => {
+    const name = document.querySelector("#name_input");
+    myStorage.setItem('name',name.value);
 }
 

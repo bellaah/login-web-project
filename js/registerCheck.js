@@ -1,17 +1,20 @@
 const idChecker = {
+    registerEvent() {
+        const idInput = document.querySelector("#id_input");
+        idInput.addEventListener("input", () => {
+            this.idCheck(idInput);
+        })
+    },
     idCheck(idInput) {
         const idSpan = document.querySelector("#id_check");
         const idRegExp = /^[A-Za-z0-9-_]{5,20}$/;
 
         if(!idRegExp.test(idInput.value)){
-            idSpan.className = "red_text";
-            idSpan.innerHTML = "5~20자의 영문 소문자, 숫자와 특수기호(_)(-) 만 사용 가능합니다.";
+            changeAttribute(idSpan,"red_text","5~20자의 영문 소문자, 숫자와 특수기호(_)(-) 만 사용 가능합니다.");
         }else if(false){
-            idSpan.className = "red_text";
-            idSpan.innerHTML = "이미 사용중인 아이디입니다.";
+            changeAttribute(idSpan,"red_text","이미 사용중인 아이디입니다.");
         }else{
-            idSpan.className = "green_text";
-            idSpan.innerHTML = "사용 가능한 아이디입니다.";
+            changeAttribute(idSpan,"green_text","사용 가능한 아이디입니다.");
         }
     }
 }
@@ -32,50 +35,59 @@ const pwdChecker= {
     },
     pwdCheck(pwdInput) {
         const pwdSpan = document.querySelector("#pwd_check");
-        pwdSpan.className = "red_text";
+
         if(pwdInput.value.length < 8 || pwdInput.value.length > 17){
-            pwdSpan.innerHTML = "8자 이상 16자 이하로 입력해주세요.";
+            changeAttribute(pwdSpan,"red_text","8자 이상 16자 이하로 입력해주세요.");
         }else if(!(new RegExp(/[A-Z]/)).test(pwdInput.value)){
-            pwdSpan.innerHTML = "영문 대문자를 최소 1자 이상 포함해주세요.";
+            changeAttribute(pwdSpan,"red_text","영문 대문자를 최소 1자 이상 포함해주세요.");
         }else if(!(new RegExp(/[0-9]/)).test(pwdInput.value)){
-            pwdSpan.innerHTML = "숫자를 최소 1자 이상 포함해주세요.";
+            changeAttribute(pwdSpan,"red_text","숫자를 최소 1자 이상 포함해주세요.");
         }else if(!(new RegExp(/[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi)).test(pwdInput.value)){
-            pwdSpan.innerHTML = "특수문자를 최소 1자 이상 포함해주세요.";
+            changeAttribute(pwdSpan,"red_text","특수문자를 최소 1자 이상 포함해주세요.");
         }else{
-            pwdSpan.className = "green_text";
-            pwdSpan.innerHTML = "안전한 비밀번호입니다.";
+            changeAttribute(pwdSpan,"green_text","안전한 비밀번호입니다.");
         }
     },
     pwdConfirmCheck(pwdConfirmInput,pwdInput) {
         const pwdConfirmSpan = document.querySelector("#pwd_confirm_check");
         if(pwdConfirmInput.value !== pwdInput.value){
-            pwdConfirmSpan.innerHTML = "비밀번호가 일치하지 않습니다.";
-            pwdConfirmSpan.className = "red_text";
+            changeAttribute(pwdConfirmSpan,"red_text","비밀번호가 일치하지 않습니다.");
         }else{
-            pwdConfirmSpan.innerHTML = "비밀번호가 일치합니다.";
-            pwdConfirmSpan.className = "green_text";
+            changeAttribute(pwdConfirmSpan,"green_text","비밀번호가 일치합니다.");
         }
     }
 }
 
 const nameChecker = {
+    registerEvent() {
+        const nameInput = document.querySelector("#name_input");
+        nameInput.addEventListener("input", () => {
+            this.nameCheck(nameInput);
+        })
+    },
     nameCheck(nameInput) {
         const nameSpan = document.querySelector("#name_check");
         if(nameInput.value == ""){
-            nameSpan.className = "red_text";
+            changeAttribute(nameSpan,"red_text","");
         }else{
-            nameSpan.className = "green_text";
+            changeAttribute(nameSpan,"green_text","");
         }
     }
 }
 
 const genderChecker = {
+    registerEvent() {
+        const genderInput = document.querySelector("#gender_input");
+        genderInput.addEventListener("input", () => {
+            this.genderCheck(genderInput);
+        })
+    },
     genderCheck(genderInput) {
         const genderSpan = document.querySelector("#gender_check");
         if(genderInput.value == "성별"){
-            genderSpan.className = "red_text";
+            changeAttribute(genderSpan,"red_text","");
         }else{
-            genderSpan.className = "green_text";
+            changeAttribute(genderSpan,"green_text","");
         }
     }
 }
@@ -94,19 +106,17 @@ const birthChecker = {
         let bool = false;
         const birthSpan = document.querySelector("#birth_check");
         let date = new Date();
+
         if(yearInput === ""){
-            birthSpan.className = "red_text";
+            changeAttribute(birthSpan,"red_text","");
             return false;
         }else if(new RegExp(/[^0-9]/g).test(yearInput.value) || yearInput.value.length < 4){
-            birthSpan.className = "red_text";
-            birthSpan.innerHTML = "태어난 년도 4자리를 정확하게 입력하세요.";
+            changeAttribute(birthSpan,"red_text","태어난 년도 4자리를 정확하게 입력하세요.");
         }else{
             if(date.getFullYear()-yearInput.value > 98){
-                birthSpan.className = "red_text";
-                birthSpan.innerHTML = "99세 이하만 가입 가능합니다.";
+                changeAttribute(birthSpan,"red_text","99세 이하만 가입 가능합니다.");
             }else if(date.getFullYear()-yearInput.value < 14){
-                birthSpan.className = "red_text";
-                birthSpan.innerHTML = "만 14세 이상만 가입 가능합니다.";
+                changeAttribute(birthSpan,"red_text","만 14세 이상만 가입 가능합니다.");
             }else{
                 bool = true;
             }
@@ -116,17 +126,16 @@ const birthChecker = {
     dayCheck(dayInput) {
         let bool = false;
         const birthSpan = document.querySelector("#birth_check");
-        let calander = [31,29,31,30,31,30,31,31,30,31,30,31];
         const monthInput = document.querySelector("#month_input");
+        let calander = [31,29,31,30,31,30,31,31,30,31,30,31];
+
         if(dayInput === "" || monthInput.value === "월"){
-            birthSpan.className = "red_text";
+            changeAttribute(birthSpan,"red_text","");
             return false;
         }else if(new RegExp(/[^0-9]/g).test(dayInput.value)){
-            birthSpan.className = "red_text";
-            birthSpan.innerHTML = "숫자만 입력가능합니다.";
+            changeAttribute(birthSpan,"red_text","숫자만 입력가능합니다.");
         }else if(calander[monthInput.value-1] < dayInput.value){
-            birthSpan.className = "red_text";
-            birthSpan.innerHTML = "태어난 날짜를 다시 확인해주세요.";
+            changeAttribute(birthSpan,"red_text","태어난 날짜를 다시 확인해주세요.");
         }else{
             bool = true;
         }
@@ -138,46 +147,58 @@ const birthChecker = {
             let dayValue =this.dayCheck(dayInput);
             let yearValue = this.yearCheck(yearInput);
             if(dayValue && yearValue){
-                birthSpan.className = "green_text";
-                birthSpan.innerHTML = "";
+                changeAttribute(birthSpan,"green_text","");
             }
         })
     }
 }
 
 const emailChecker = {
+    registerEvent() {
+        const emailInput = document.querySelector("#email_input");
+        emailInput.addEventListener("input", () => {
+            this.emailCheck(emailInput);
+        })
+    },
     emailCheck(emailInput) {
         const emailSpan = document.querySelector("#email_check");
         let emailRegExp = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/;
+
         if(!emailRegExp.test(emailInput.value)){
-            emailSpan.className = "red_text";
-            emailSpan.innerHTML = "이메일 주소를 다시 확인해주세요.";
+            changeAttribute(emailSpan,"red_text","이메일 주소를 다시 확인해주세요.");
         }else{
-            emailSpan.innerHTML = "";
-            emailSpan.className = "green_text";
+            changeAttribute(emailSpan,"green_text","");
         }
     }
 }
 
 const phoneChecker = {
+    registerEvent() {
+        const phoneInput = document.querySelector("#phone_input");
+        phoneInput.addEventListener("input", () => {
+            this.phoneCheck(phoneInput);
+        })
+    },
     phoneCheck(phoneInput) {
         const phoneSpan = document.querySelector("#phone_check");
         let numberRegExp = /^010\d{3,4}\d{4}$/;
+
         if(!numberRegExp.test(phoneInput.value)){
-            phoneSpan.className = "green_text";
-            phoneSpan.innerHTML = "형식에 맞지 않는 번호입니다.";
+            changeAttribute(phoneSpan,"red_text","형식에 맞지 않는 번호입니다.");
         }else{
-            phoneSpan.className = "green_text";
-            phoneSpan.innerHTML = "";
+            changeAttribute(phoneSpan,"green_text","");
         }
     }
 }
 
 const interestChecker = {
     registerEvent() {
-        const input = document.querySelector("#interest_input");
-        input.addEventListener("keydown", (event) =>{
-            if(input.selectionStart === 0){
+        const interestInput = document.querySelector("#interest_input");
+        interestInput.addEventListener("input", () =>{
+            this.interestCheck(interestInput);
+        })
+        interestInput.addEventListener("keydown", (event) =>{
+            if(interestInput.selectionStart === 0){
                 this.back(event);
             }
         })
@@ -195,11 +216,9 @@ const interestChecker = {
         }
         
         if(tagList.childElementCount < 3){
-            interestSpan.className = "red_text";
-            interestSpan.innerHTML = "3개 이상의 관심사를 입력하세요.";
+            changeAttribute(interestSpan,"red_text","3개 이상의 관심사를 입력하세요.");
         }else{
-            interestSpan.className = "green_text";
-            interestSpan.innerHTML = "";
+            changeAttribute(interestSpan,"green_text","");
         }
 
     },
@@ -224,28 +243,24 @@ const termsChecker = {
     termsCheck(termsCheckbox){
         const termsSpan = document.querySelector("#terms_check");
         if(termsCheckbox.checked){
-            termsSpan.className = "green_text"; 
+            changeAttribute(termsSpan,"green_text","");
         }else{
-            termsSpan.className = "red_text"; 
+            changeAttribute(termsSpan,"red_text",""); 
         }
     }
 }
 
-const registerEventListener = () => {
-    //selectorList = 배열 형 배열, 배열에는 id 혹은 class의 이름과 호출해야하는 함수를 담는다.
-    const selectorList = [["#id_input","idChecker.idCheck"],
-                          ["#name_input","nameChecker.nameCheck"],
-                          ["#gender_input","genderChecker.genderCheck"],
-                          ["#email_input","emailChecker.emailCheck"],
-                          ["#phone_input","phoneChecker.phoneCheck"],
-                          ["#interest_input","interestChecker.interestCheck"]];
+const changeAttribute = (selector,className,str) => {
+    selector.className = className;
+    selector.innerHTML = str;
+}
 
-    selectorList.forEach((list) => {
-        const selector = document.querySelector(list[0]);
-        selector.addEventListener("input", () => {
-            eval(list[1])(selector);
-        })
-    })
+const registerEventListener = () => {
+    idChecker.registerEvent();
+    nameChecker.registerEvent();
+    genderChecker.registerEvent();
+    emailChecker.registerEvent();
+    phoneChecker.registerEvent();
     interestChecker.registerEvent();
     birthChecker.registerEvent();
     pwdChecker.registerEvent();
