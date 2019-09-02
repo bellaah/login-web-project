@@ -1,18 +1,4 @@
-const layer =  document.querySelector("#pop_layer");
-const backgroundDiv =  document.querySelector("#backgound_div");
 const tagDiv = document.querySelector(".tag_div");
-
-const popLayer = () => {
-    layer.style.display = 'flex';
-    layer.style.left = (window.innerWidth-layer.clientWidth)/2+"px";
-    layer.style.top = (window.innerHeight-layer.clientHeight)/2+"px";
-    backgroundDiv.style.width = window.innerWidth+"px";
-    backgroundDiv.style.height = window.innerHeight+"px";
-}
-
-const closeLayer = () => {
-    layer.style.display='none';
-}
 
 const focusIn = () => {
     tagDiv.style.borderColor='#2cb400';
@@ -22,12 +8,11 @@ const focusOut = () => {
     tagDiv.style.borderColor='#dadada';
 }
 
-const agreeLayer = () => {
-    const checkBtn =  document.querySelector("#terms_check");
-    checkBtn.disabled = false;
-    checkBtn.checked = true;
-    layer.style.display = 'none';
-    backgroundDiv.style.display = 'none';
+const scrolled = (obj) => {
+    const agreeBtn =  document.querySelector(".layer_green_btn");
+    if(obj.offsetHeight + obj.scrollTop >= obj.scrollHeight){
+        agreeBtn.disabled = false;
+    }
 }
 
 const RemoveItself = (elem) => {
@@ -36,21 +21,22 @@ const RemoveItself = (elem) => {
     parent.removeChild(item);
 }
 
-const scrolled = (obj) => {
-    const agreeBtn =  document.querySelector("#agree_btn");
-    if(obj.offsetHeight + obj.scrollTop >= obj.scrollHeight){
-        agreeBtn.disabled = false;
-    }
+const customReset = () => {
+    const registerForm = document.querySelector(".register_form");
+    registerForm.reset();
+    resetTag();
+    resetSpan();
+    closeLayer();
 }
 
 const resetTag = () => {
+    const tagList = document.querySelector(".tag_list");
+    removeChildAll(tagList);
+}
+
+const resetSpan = () => {
     const redSpan = document.querySelectorAll(".red_text");
     const greenSpan = document.querySelectorAll(".green_text");
-    const tagList = document.querySelector(".tag_list");
-
-    while (tagList.hasChildNodes()){
-        tagList.removeChild(tagList.firstChild); 
-    } 
 
     redSpan.forEach(elem => {
         elem.innerHTML = "";
@@ -58,15 +44,56 @@ const resetTag = () => {
     greenSpan.forEach(elem => {
         elem.innerHTML = "";
     });
-
 }
 
 const moveMain = () =>{
-    console.log("$");
     const registerDiv = document.querySelectorAll("#register");
     const mainDiv = document.querySelectorAll("#main");
 
     registerDiv[0].style.display = 'none';
     mainDiv[0].style.display = 'flex';
+}
+
+const removeChildAll = (parent) => {
+    while (parent.hasChildNodes()){
+        parent.removeChild(parent.firstChild); 
+    }
+}
+
+const termsAgree = () => {
+    const termsCheckbox =  document.querySelector("#terms_input");
+    termsCheckbox.disabled = false;
+    termsCheckbox.checked = true;
+    termsChecker.termsCheck(termsCheckbox);
+    closeLayer();
+}
+
+const checkAll = () => {
+    let returnValue = checkInputAll();
+    if(returnValue.length == 0){   //input 모두 만족
+        moveMain();
+    }else{  //input 빈 항목이 있거나 red text가 떴을 경우
+        registerLayer(returnValue);
+    }
+}
+
+const checkInputAll = () => {
+    const redSpan =  document.querySelectorAll(".red_text");
+    let errorText = {"id_check" : "아이디를 형식에 맞게 입력해주세요.",
+                    pwd_check : "비밀번호를 형식에 맞게 입력해주세요.",
+                    pwd_confirm_check : "비밀번호가 일치하지 않습니다.",
+                    name_check : "이름을 입력해주세요.",
+                    birth_check : "생년월일을 형식에 맞게 입력해주세요.",
+                    gender_check : "성별을 입력해주세요.",
+                    email_check : "이메일을 형식에 맞게 입력해주세요.",
+                    phone_check : "휴대전화를 형식에 맞게 입력해주세요.",
+                    interest_check : "관심사를 3개 이상 입력해주세요.",
+                    terms_check : "약관에 동의해주세요."};
+    const redList = [];
+
+    redSpan.forEach(elem => {
+        redList.push(errorText[elem.id]);
+    })
+    return redList;
 }
 
