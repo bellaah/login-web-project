@@ -23,7 +23,7 @@ const pwdChecker= {
         pwdInput.addEventListener("input", () => {
             this.pwdCheck(pwdInput);
             if(pwdConfirmInput.value !== ''){
-                pwdConfirmListener.pwdConfirmCheck(pwdConfirmInput.value);
+                this.pwdConfirmCheck(pwdConfirmInput.value);
             }
         })
         pwdConfirmInput.addEventListener("input", () => {
@@ -94,8 +94,8 @@ const birthChecker = {
         let bool = false;
         const birthSpan = document.querySelector("#birth_check");
         let date = new Date();
-        console.log("yearCheck");
         if(yearInput === ""){
+            birthSpan.className = "red_text";
             return false;
         }else if(new RegExp(/[^0-9]/g).test(yearInput.value) || yearInput.value.length < 4){
             birthSpan.className = "red_text";
@@ -118,14 +118,12 @@ const birthChecker = {
         const birthSpan = document.querySelector("#birth_check");
         let calander = [31,29,31,30,31,30,31,31,30,31,30,31];
         const monthInput = document.querySelector("#month_input");
-        console.log("dayCheck");
-        if(dayInput === ""){
+        if(dayInput === "" || monthInput.value === "월"){
+            birthSpan.className = "red_text";
             return false;
         }else if(new RegExp(/[^0-9]/g).test(dayInput.value)){
-            birthSpan.innerHTML = "숫자만 입력가능합니다.";
-        }
-        if(monthInput.value === "월"){
             birthSpan.className = "red_text";
+            birthSpan.innerHTML = "숫자만 입력가능합니다.";
         }else if(calander[monthInput.value-1] < dayInput.value){
             birthSpan.className = "red_text";
             birthSpan.innerHTML = "태어난 날짜를 다시 확인해주세요.";

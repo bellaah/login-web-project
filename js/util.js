@@ -47,11 +47,33 @@ const resetSpan = () => {
 }
 
 const moveMain = () =>{
-    const registerDiv = document.querySelectorAll("#register");
-    const mainDiv = document.querySelectorAll("#main");
+    const registerDiv = document.querySelector("#register");
+    const mainDiv = document.querySelector("#main");
+    const loginDiv = document.querySelector("#login");
 
-    registerDiv[0].style.display = 'none';
-    mainDiv[0].style.display = 'flex';
+    registerDiv.style.display = 'none';
+    loginDiv.style.display = 'none';
+    mainDiv.style.display = 'flex';
+}
+
+const moveRegister = () =>{
+    const registerDiv = document.querySelector("#register");
+    const mainDiv = document.querySelector("#main");
+    const loginDiv = document.querySelector("#login");
+
+    registerDiv.style.display = 'flex';
+    loginDiv.style.display = 'none';
+    mainDiv.style.display = 'none';
+}
+
+const moveLogin = () =>{
+    const registerDiv = document.querySelector("#register");
+    const mainDiv = document.querySelector("#main");
+    const loginDiv = document.querySelector("#login");
+
+    registerDiv.style.display = 'none';
+    loginDiv.style.display = 'flex';
+    mainDiv.style.display = 'none';
 }
 
 const removeChildAll = (parent) => {
@@ -79,7 +101,7 @@ const checkAll = () => {
 
 const checkInputAll = () => {
     const redSpan =  document.querySelectorAll(".red_text");
-    let errorText = {"id_check" : "아이디를 형식에 맞게 입력해주세요.",
+    let errorText = {id_check : "아이디를 형식에 맞게 입력해주세요.",
                     pwd_check : "비밀번호를 형식에 맞게 입력해주세요.",
                     pwd_confirm_check : "비밀번호가 일치하지 않습니다.",
                     name_check : "이름을 입력해주세요.",
@@ -95,5 +117,13 @@ const checkInputAll = () => {
         redList.push(errorText[elem.id]);
     })
     return redList;
+}
+
+const loginClick = () => {
+    const loginIdInput = document.querySelector("#login_id_input");
+    const loginPwdInput = document.querySelector("#login_pwd_input");
+    if(loginIdInput.value !== "" && loginPwdInput.value !== ""){
+        moveMain();
+    }
 }
 
