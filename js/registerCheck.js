@@ -2,11 +2,12 @@ const idChecker = {
     idCheck(idInput) {
         const idSpan = document.querySelector("#id_check");
         const idRegExp = /^[A-Za-z0-9-_]{5,20}$/;
-        
-        idSpan.className = "red_text";
+
         if(!idRegExp.test(idInput.value)){
+            idSpan.className = "red_text";
             idSpan.innerHTML = "5~20자의 영문 소문자, 숫자와 특수기호(_)(-) 만 사용 가능합니다.";
         }else if(false){
+            idSpan.className = "red_text";
             idSpan.innerHTML = "이미 사용중인 아이디입니다.";
         }else{
             idSpan.className = "green_text";
@@ -57,14 +58,24 @@ const pwdChecker= {
     }
 }
 
-const emailChecker = {
-    emailCheck(emailInput) {
-        const emailSpan = document.querySelector("#email_check");
-        let emailRegExp = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/;
-        if(!emailRegExp.test(emailInput.value)){
-            emailSpan.innerHTML = "이메일 주소를 다시 확인해주세요.";
+const nameChecker = {
+    nameCheck(nameInput) {
+        const nameSpan = document.querySelector("#name_check");
+        if(nameInput.value == ""){
+            nameSpan.className = "red_text";
         }else{
-            emailSpan.innerHTML = "";
+            nameSpan.className = "green_text";
+        }
+    }
+}
+
+const genderChecker = {
+    genderCheck(genderInput) {
+        const genderSpan = document.querySelector("#gender_check");
+        if(genderInput.value == "성별"){
+            genderSpan.className = "red_text";
+        }else{
+            genderSpan.className = "green_text";
         }
     }
 }
@@ -73,38 +84,79 @@ const birthChecker = {
     registerEvent() {
         const monthInput = document.querySelector("#month_input");
         const dayInput = document.querySelector("#day_input");
-        monthInput.addEventListener("input", () => {
-            this.dayCheck(dayInput);
-        })
+        const yearInput = document.querySelector("#year_input");
+
+        this.checkAllListener(monthInput,dayInput,yearInput);
+        this.checkAllListener(dayInput,dayInput,yearInput);
+        this.checkAllListener(yearInput,dayInput,yearInput);
     },
     yearCheck(yearInput) {
+        let bool = false;
         const birthSpan = document.querySelector("#birth_check");
         let date = new Date();
-        if(new RegExp(/[^0-9]/g).test(yearInput.value) || yearInput.value.length < 4){
+        console.log("yearCheck");
+        if(yearInput === ""){
+            return false;
+        }else if(new RegExp(/[^0-9]/g).test(yearInput.value) || yearInput.value.length < 4){
+            birthSpan.className = "red_text";
             birthSpan.innerHTML = "태어난 년도 4자리를 정확하게 입력하세요.";
         }else{
             if(date.getFullYear()-yearInput.value > 98){
+                birthSpan.className = "red_text";
                 birthSpan.innerHTML = "99세 이하만 가입 가능합니다.";
             }else if(date.getFullYear()-yearInput.value < 14){
+                birthSpan.className = "red_text";
                 birthSpan.innerHTML = "만 14세 이상만 가입 가능합니다.";
             }else{
-                birthSpan.innerHTML = "";
+                bool = true;
             }
         }
+        return bool;
     },
     dayCheck(dayInput) {
+        let bool = false;
         const birthSpan = document.querySelector("#birth_check");
         let calander = [31,29,31,30,31,30,31,31,30,31,30,31];
         const monthInput = document.querySelector("#month_input");
-        if(new RegExp(/[^0-9]/g).test(dayInput.value)){
+        console.log("dayCheck");
+        if(dayInput === ""){
+            return false;
+        }else if(new RegExp(/[^0-9]/g).test(dayInput.value)){
             birthSpan.innerHTML = "숫자만 입력가능합니다.";
         }
         if(monthInput.value === "월"){
-            return;
+            birthSpan.className = "red_text";
         }else if(calander[monthInput.value-1] < dayInput.value){
+            birthSpan.className = "red_text";
             birthSpan.innerHTML = "태어난 날짜를 다시 확인해주세요.";
         }else{
-            birthSpan.innerHTML = "";
+            bool = true;
+        }
+        return bool;
+    },
+    checkAllListener(input,dayInput,yearInput){
+        const birthSpan = document.querySelector("#birth_check");
+        input.addEventListener("input", () => {
+            let dayValue =this.dayCheck(dayInput);
+            let yearValue = this.yearCheck(yearInput);
+            if(dayValue && yearValue){
+                birthSpan.className = "green_text";
+                birthSpan.innerHTML = "";
+            }
+        })
+    }
+}
+
+const emailChecker = {
+    emailCheck(emailInput) {
+        const emailSpan = document.querySelector("#email_check");
+        let emailRegExp = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/;
+        if(!emailRegExp.test(emailInput.value)){
+            emailSpan.className = "red_text";
+            emailSpan.innerHTML = "이메일 주소를 다시 확인해주세요.";
+        }else{
+            emailSpan.innerHTML = "";
+            emailSpan.className = "green_text";
         }
     }
 }
@@ -114,8 +166,10 @@ const phoneChecker = {
         const phoneSpan = document.querySelector("#phone_check");
         let numberRegExp = /^010\d{3,4}\d{4}$/;
         if(!numberRegExp.test(phoneInput.value)){
+            phoneSpan.className = "green_text";
             phoneSpan.innerHTML = "형식에 맞지 않는 번호입니다.";
         }else{
+            phoneSpan.className = "green_text";
             phoneSpan.innerHTML = "";
         }
     }
@@ -143,8 +197,10 @@ const interestChecker = {
         }
         
         if(tagList.childElementCount < 3){
+            interestSpan.className = "red_text";
             interestSpan.innerHTML = "3개 이상의 관심사를 입력하세요.";
         }else{
+            interestSpan.className = "green_text";
             interestSpan.innerHTML = "";
         }
 
@@ -160,13 +216,30 @@ const interestChecker = {
     }
 }
 
-const RegisterEventListener = () => {
+const termsChecker = {
+    registerEvent(){
+        const termsCheckbox = document.querySelector("#terms_input");
+        termsCheckbox.addEventListener("change", (event) =>{
+            this.termsCheck(termsCheckbox);
+        })
+    },
+    termsCheck(termsCheckbox){
+        const termsSpan = document.querySelector("#terms_check");
+        if(termsCheckbox.checked){
+            termsSpan.className = "green_text"; 
+        }else{
+            termsSpan.className = "red_text"; 
+        }
+    }
+}
+
+const registerEventListener = () => {
     //selectorList = 배열 형 배열, 배열에는 id 혹은 class의 이름과 호출해야하는 함수를 담는다.
     const selectorList = [["#id_input","idChecker.idCheck"],
+                          ["#name_input","nameChecker.nameCheck"],
+                          ["#gender_input","genderChecker.genderCheck"],
                           ["#email_input","emailChecker.emailCheck"],
                           ["#phone_input","phoneChecker.phoneCheck"],
-                          ["#year_input","birthChecker.yearCheck"],
-                          ["#day_input","birthChecker.dayCheck"],
                           ["#interest_input","interestChecker.interestCheck"]];
 
     selectorList.forEach((list) => {
@@ -178,5 +251,7 @@ const RegisterEventListener = () => {
     interestChecker.registerEvent();
     birthChecker.registerEvent();
     pwdChecker.registerEvent();
+    termsChecker.registerEvent();
 }
-RegisterEventListener();
+
+registerEventListener();
