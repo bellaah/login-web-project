@@ -21,6 +21,8 @@ const closeLayer = () => {
 }
 
 const termsLayer = () => {
+    layerText.style.height = '7rem';
+    layerText.style.margin = '1rem 0;';
     layerText.setAttribute("onscroll","scrolled(this)");
     layerHead.innerHTML = "개인 정보 수집 및 이용에 대한 안내";
     layerText.innerHTML = `
@@ -63,6 +65,8 @@ const termsLayer = () => {
 }
 
 const resetLayer = () => {
+    layerText.style.height = '2rem';
+    layerText.style.margin = '0.2rem 0 1rem 0';
     layerHead.innerHTML = "";
     layerText.innerHTML = "모든 내용을 새로 작성하시겠습니까?";
     layerBtnDiv.insertAdjacentHTML('beforeend',`<button type="button" onclick="closeLayer()" class="layer_green_btn">취소</button>`);
@@ -71,6 +75,8 @@ const resetLayer = () => {
 }
 
 const registerLayer = (list) => {
+    layerText.style.height = 'auto';
+    layerText.style.margin = '0.2rem 0 1rem 0';
     let listText ="";
     layerHead.innerHTML = "";
 

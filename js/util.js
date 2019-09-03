@@ -87,7 +87,7 @@ const termsAgree = () => {
 const checkAll = () => {
     let returnValue = checkInputAll();
     if(returnValue.length == 0){   //input 모두 만족
-        localStore();
+        localStorageSetter(document.querySelector("#name_input"));
         moveMain();
     }else{  //input 빈 항목이 있거나 red text가 떴을 경우
         registerLayer(returnValue);
@@ -118,12 +118,12 @@ const loginClick = () => {
     const loginIdInput = document.querySelector("#login_id_input");
     const loginPwdInput = document.querySelector("#login_pwd_input");
     if(loginIdInput.value !== "" && loginPwdInput.value !== ""){
+        localStorageSetter(document.querySelector("#login_id_input"));
         moveMain();
     }
 }
 
-const localStore = () => {
-    const name = document.querySelector("#name_input");
+const localStorageSetter = (name) => {
     myStorage.setItem('name',name.value);
 }
 

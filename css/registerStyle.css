@@ -1,66 +1,6 @@
-#register {
-    position: relative;
-    display: none;
-    flex-direction: column;
-    align-items :center;
-    font-family: Dotum,'돋움',Helvetica,sans-serif;
-    background :#f5f6f7;
-}
-
-#login {
-    position: relative;
-    display: flex;
-    margin-top: 20%;
-    align-self: center;
-    flex-direction: column;
-    align-items :center;
-    font-family: Dotum,'돋움',Helvetica,sans-serif;
-}
-
-.form-signin > input {
-    border-radius: 0;
-    margin-bottom: 0.8rem;
-}
-
-.btn-block+.btn-block {
-    margin-top: 0;
-}
-
-.form-control {
-    height: 3rem;
-}
-
-.form-signin {
-    width: 50%;
-    background :#f5f6f7;
-    border: solid 1px #dadada;
-    padding: 2rem;
-}
-
-#login_btn_div{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-#login_btn_div > button{
-    border-radius: 0;
-    width: 49%;
-    background-color: #2cb400;
-}
-
-.register_form {
-    width: 460px;
-}
-
+/* 공통 */
 span {
     margin-top : 0.3rem;
-}
-
-.register_form > div{
-    display: flex;
-    flex-direction: column;
-    height: auto;
 }
 
 input, select {
@@ -72,9 +12,53 @@ input:focus,select:focus{
     border-color: #2cb400;
 }
 
-#register_text {
-    color: #2cb400;
-    margin-top: 2rem;
+input,select,.tag_div {
+    height: 3.3rem;
+    border: solid 1px #dadada;
+    padding: 0.5rem;
+    background: #fff;
+}
+
+input[type=checkbox] {
+    -ms-transform: scale(1.2); /* IE */
+    -moz-transform: scale(1.2); /* FF */
+    -webkit-transform: scale(1.2); /* Safari and Chrome */
+    -o-transform: scale(1.2); /*Opera*/
+    margin-left: 0.3rem;
+    width: 1rem;
+    height: 1rem;
+    padding: 0rem;
+}
+
+::placeholder { 
+    color: #8e8e8e;
+    opacity: 1;
+}
+
+pre {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break:break-all;
+}
+
+/* register */
+#register {
+    position: relative;
+    display: none;
+    flex-direction: column;
+    align-items :center;
+    font-family: Dotum,'돋움',Helvetica,sans-serif;
+    background :#f5f6f7;
+}
+
+.register_form {
+    width: 460px;
+}
+
+.register_form > div{
+    display: flex;
+    flex-direction: column;
+    height: auto;
 }
 
 .register_form > div > label {
@@ -83,16 +67,32 @@ input:focus,select:focus{
     margin : 1rem 0 0.5rem;
 }
 
+.register_form > .terms {
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.register_form > .green_btn {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#register_text {
+    color: #2cb400;
+    margin-top: 2rem;
+}
+
+#register_footer {
+    margin: 2rem 0 1rem 0;
+    align-self: center;
+    font-size: 1rem;
+    color: #495057;
+}
+
 .text_input > input, .text_input > select {
     width: 100%;
     box-sizing: border-box;
-}
-
-input,select,.tag_div {
-    height: 3.3rem;
-    border: solid 1px #dadada;
-    padding: 0.5rem;
-    background: #fff;
 }
 
 .birth_wrap > input, .birth_wrap > select {
@@ -105,26 +105,9 @@ input,select,.tag_div {
     justify-content: space-between;
 }
 
-.register_form > .terms {
-    height: 3rem;
-    display: flex;
-    flex-direction: row;
-}
-
 .terms > input, .terms > a {
     margin-block-start: 1rem;
     height: 2rem;
-}
-
-input[type=checkbox] {
-  -ms-transform: scale(1.2); /* IE */
-  -moz-transform: scale(1.2); /* FF */
-  -webkit-transform: scale(1.2); /* Safari and Chrome */
-  -o-transform: scale(1.2); /* Opera */
-  margin-left: 0.3rem;
-  width: 1rem;
-  height: 1rem;
-  padding: 0rem;
 }
 
 .terms > a {
@@ -132,10 +115,11 @@ input[type=checkbox] {
     color: black;
 }
 
-.register_form > .green_btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+#terms_input {
+    background-color: initial;
+    cursor: default;
+    -webkit-appearance: checkbox;
+    margin-block-start: 0.4rem;
 }
 
 .green_btn > input, .green_btn > button {
@@ -145,11 +129,6 @@ input[type=checkbox] {
     font-size: 1rem;
     background-color: #2cb400;
     color: white;
-}
-
-::placeholder { 
-    color: #8e8e8e;
-    opacity: 1;
 }
 
 .red_text {
@@ -201,31 +180,90 @@ input[type=checkbox] {
     width: -webkit-fill-available;
 }
 
+#reset_btn {
+    display: none;
+}
+
+/* login */
+#login {
+    position: relative;
+    display: flex;
+    margin-top: 20%;
+    align-self: center;
+    flex-direction: column;
+    align-items :center;
+    font-family: Dotum,'돋움',Helvetica,sans-serif;
+}
+
+#login_btn_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#login_btn_div > button{
+    border-radius: 0;
+    width: 49%;
+    background-color: #2cb400;
+}
+
+#login_head {
+    color: #2cb400;
+    text-align: center;
+    margin: 0 0 1rem 0;
+}
+
+.form-signin > input {
+    border-radius: 0;
+    margin-bottom: 0.8rem;
+}
+
+.btn-block+.btn-block {
+    margin-top: 0;
+}
+
+.form-control {
+    height: 3rem;
+}
+
+.form-signin {
+    width: 50%;
+    background :#f5f6f7;
+    border: solid 1px #dadada;
+    padding: 2rem;
+}
+
+/* main */
+#main {
+    display: none;
+    position: relative;
+    flex-direction: column;
+    align-items :center;
+}
+
+#main_div > span {
+    font-size: 5rem;
+    align-self: center;
+}
+
+/* layer */
 #backgound_div {
-    position: fixed;
+    position: 'none';
     background-color: #495057;
     opacity: 0.5;
     height: 0;
     width: 0;
-    top : 0;
-    left: 0;
 }
 
 #layer_text {
     height: 7rem;
     margin: 1rem 0;
-    padding: 1rem;
+    padding: 0.5rem;;
     overflow:scroll; 
     text-align: initial;
     background-color: white;
     border:  solid 1px #dadada;
     font-size: 0.8rem;
-}
-
-pre {
-    word-wrap: break-word;
-    white-space: pre-wrap;
-    word-break:break-all;
 }
 
 .pop_layer {
@@ -263,42 +301,7 @@ pre {
     font-size: 1rem;
 }
 
-#terms_input {
-    background-color: initial;
-    cursor: default;
-    -webkit-appearance: checkbox;
-}
-
 #layer_head {
     align-self: baseline;
     font-weight: 700;
-}
-
-#reset_btn {
-    display: none;
-}
-
-#register_footer {
-    margin: 2rem 0 1rem 0;
-    align-self: center;
-    font-size: 1rem;
-    color: #495057;
-}
-
-#main {
-    display: none;
-    position: relative;
-    flex-direction: column;
-    align-items :center;
-}
-
-#main_div > span {
-    font-size: 5rem;
-    align-self: center;
-}
-
-#login_head {
-    color: #2cb400;
-    text-align: center;
-    margin: 0 0 1rem 0;
 }

@@ -1,35 +1,25 @@
-# 멤버십 WEEK1 - 로그인과 회원가입 저장소 (day3)
+# 멤버십 WEEK1 - 로그인과 회원가입 저장소
 
-### idCheck.js
-- #id_input에 input이 발생하면 listener가 idCheck라는 메서드를 호출한다.
-- #id_check를 가져온다.
-- #id_input의 value를 대,소문자,숫자,-,_ 이 외의 문자가 있는지 정규식으로 확인한다.
-- 확인하여 다른 문자가 있다면 className을 "red_text"로 바꿔서 css파일에서 res_text라는 class는 color를 red로 설정해주었다.
-- 또한, #id_input의 아래에 있는 span태그의 innerHTML을 "5~20자의 영문 소문자, 숫자와 특수기호(_)(-) 만 사용 가능합니다."로 바꿔준다.
-- input의 value가 대,소문자,숫자,_,-만 포함한다면 innerHTML을 사용가능하다는 문자열로 바꿔준다.
+### login.html
+- SPA로 동작하기 위해서 <div>태그를 register,login,main으로 나눠 register를 보여줄 땐 register.display만 'flex'로 지정하고 login과 main의 display는 'none'으로 바꾸도록 js에서 구현하였다.
+- #login은 bootstrap을 사용하였다.
 
-### pwdCheck.js
-- 위와 같은 방법으로 #pwd_input을 가져와서 정규식을 통해 원하는 조합인지 찾아본다.
-- 조합이 다를 때마다 그에 맞는 안내문을 보여준다.
-- 맞는 조합이라면 초록색의 문자열을 보여준다.
-- 또한, "비밀번호 재확인", "비밀번호" label의 input이 발생할 때마다 "비밀번호","비밀번호 재확인"의 value가 같은지 확인한다.
+### registerCheck.js
+- input마다 addEventListener를 만들고 각각의 input에서 요구하는 조건에 맞게 작성하였는지 input이 발생할 때마다 확인하여 input 태그 아래에 error 혹은 pass 메세지를 보여준다.
 
-### emailCheck.js
-- 정규식을 사용해 이메일 주소의 맞는 조합인지 확인하고 아니라면 emile input의 아래 span의 innerHTML을 맞는 안내문으로 바꿔준다.
-
-### pheneCheck.js
-- 정규식을 사용해 010으로 시작하고 10-11자리의 input인지 확인하고 아니라면 phone input의 아래 span의 innerHTML을 맞는 안내문으로 바꿔준다.
-
-### birthdayCheck.js
-- 2개의 input(year,day)와 select(month)를 querySelector로 가져온다.
-- year input이 발생하면 yearCheck라는 메서드를 호출하지만 month,day input이 발생하면 모두 dayCheck를 호출한다.
-- month가 default값이 아닌 다른 값이 선택되었을 때, day의 값이 어떤 숫자가 있다면 그 달에 해당하는 범위에 들어가는지 확인한다.
-- 마찬가지로 day input이 발생하면 month의 값을 가져와 calander라는 배열의 값으로 월마다 유효한 날짜의 범위를 체크한다.
-
-### interestCheck.js
-- 관심사를 입력하면 interestCheck 메서드가 호출된다.
-- 그 메서드에서는 ,가 들어오는지 확인하여 ,가 들어오면 하나의 tag로 분리한다.
-- 그 분리는 tagList라는 div에 <p>태그로 ,전의 문자열을 넣는 것이다.
+### layer.js
+- 약관 동의, 초기화, 가입하기 버튼을 누르면 나오는 layer를 설정한다.
+- 약관 동의를 누르면 termsLayer()가 호출되고 layer의 style과 내용을 바꾼다.
+- 초기화 버튼을 누르면 resetLayer()가 호출된다.
+- 가입하기 버튼을 누르면 registerLayer()가 호출된다.
 
 ### util.js
-- 팝업 레이어 기능을 돕는 function들로 구성되었다.
+- 여러가지 util 함수를 구현하였다.
+- scroll되거나 focus될 때 style을 변경하는 함수를 포함한다.
+- 페이지를 이동할 때 moveMain(),moveRegister(),moveLogin()을 정의하여 div의 style들을 바꿔준다.
+- removeChildAll(),RemoveItself()등 html의 element를 삭제하는 기능을 함수로 만들었다.
+- 초기화 버튼이 click되었을 때 처리해야 할 기능을 customReset(),resetTag(),resetSpan() 함수로 나눠 구현하였다.
+- 가입하기 버튼이 click되었을 때 처리해야 할 기능을 checkAll(),checkInputAll()로 구현하였다.
+- 로그인 버튼이 click되었을 때 처리할 기능을 loginClick()으로 구현하였다.
+- localStorageSetter()를 통해 사용자의 name을 저장하여 main에서 로그인된 것 처럼 사용자의 name을 보여준다.
+
