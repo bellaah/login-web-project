@@ -1,7 +1,7 @@
 # 멤버십 WEEK1 - 로그인과 회원가입 저장소
 
 ### login.html
-- SPA로 동작하기 위해서 <div>태그를 register,login,main으로 나눠 register를 보여줄 땐 register.display만 'flex'로 지정하고 login과 main의 display는 'none'으로 바꾸도록 js에서 구현하였다.
+- SPA로 동작하기 위해서 div태그를 register,login,main으로 나눠 register를 보여줄 땐 register.display만 'flex'로 지정하고 login과 main의 display는 'none'으로 바꾸도록 js에서 구현하였다.
 - #login은 bootstrap을 사용하였다.
 
 ### registerCheck.js
