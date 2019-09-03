@@ -125,16 +125,17 @@ const birthChecker = {
     },
     dayCheck(dayInput) {
         let bool = false;
+        const yearInput = document.querySelector("#year_input");
         const birthSpan = document.querySelector("#birth_check");
         const monthInput = document.querySelector("#month_input");
-        let calander = [31,29,31,30,31,30,31,31,30,31,30,31];
+        let lastDay = (new Date(yearInput.value, monthInput.value ,0)).getDate();
 
         if(dayInput === "" || monthInput.value === "월"){
             changeAttribute(birthSpan,"red_text","");
             return false;
         }else if(new RegExp(/[^0-9]/g).test(dayInput.value)){
             changeAttribute(birthSpan,"red_text","숫자만 입력가능합니다.");
-        }else if(calander[monthInput.value-1] < dayInput.value){
+        }else if(lastDay < dayInput.value){
             changeAttribute(birthSpan,"red_text","태어난 날짜를 다시 확인해주세요.");
         }else{
             bool = true;
