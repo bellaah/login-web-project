@@ -1,36 +1,32 @@
-let obj = {
-}
+const layerDiv =  document.querySelector(".pop_layer");
+const backgroundDiv =  document.querySelector("#backgound_div");
+const layerHead =  document.querySelector("#layer_head");
+const layerText =  document.querySelector("#layer_text");
+const layerBtnDiv = document.querySelector("#layer_btn");
 
-const makeObj = () => {
-    obj.layerDiv =  document.querySelector(".pop_layer");
-    obj.backgroundDiv =  document.querySelector("#backgound_div");
-    obj.layerHead =  document.querySelector("#layer_head");
-    obj.layerText =  document.querySelector("#layer_text");
-    obj.layerBtnDiv = document.querySelector("#layer_btn");
-}
 
 const popLayer = () => {
-    obj.layerDiv.style.display = 'flex';
-    obj.backgroundDiv.style.display = 'inline';
-    obj.layerDiv.style.left = (window.innerWidth-obj.layerDiv.clientWidth)/2+"px";
-    obj.layerDiv.style.top = (window.innerHeight-obj.layerDiv.clientHeight)/2+"px";
-    obj.backgroundDiv.style.width = window.innerWidth+"px";
-    obj.backgroundDiv.style.height = window.innerHeight+"px";
+    layerDiv.style.display = 'flex';
+    backgroundDiv.style.display = 'inline';
+    layerDiv.style.left = (window.innerWidth-layerDiv.clientWidth)/2+"px";
+    layerDiv.style.top = (window.innerHeight-layerDiv.clientHeight)/2+"px";
+    backgroundDiv.style.width = window.innerWidth+"px";
+    backgroundDiv.style.height = window.innerHeight+"px";
 }
  
 const closeLayer = () => {
-    obj.layerDiv.style.display = 'none';
-    obj.backgroundDiv.style.display = 'none';
-    obj.layerText.removeAttribute("onscroll");
-    removeChildAll(obj.layerBtnDiv);
+    layerDiv.style.display = 'none';
+    backgroundDiv.style.display = 'none';
+    layerText.removeAttribute("onscroll");
+    removeChildAll(layerBtnDiv);
 }
 
 const termsLayer = () =>{
-    obj.layerText.style.height = '7rem';
-    obj.layerText.style.margin = '1rem 0;';
-    obj.layerText.setAttribute("onscroll","scrolled(this)");
-    obj.layerHead.innerHTML = "개인 정보 수집 및 이용에 대한 안내";
-    obj.layerText.innerHTML = `
+    layerText.style.height = '7rem';
+    layerText.style.margin = '1rem 0;';
+    layerText.setAttribute("onscroll","scrolled(this)");
+    layerHead.innerHTML = "개인 정보 수집 및 이용에 대한 안내";
+    layerText.innerHTML = `
 정보통신망법 규정에 따라 부스트캠프에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
 
 1. 수집하는 개인정보의 항목
@@ -65,31 +61,31 @@ const termsLayer = () =>{
 - 웹사이트 방문기록
 보존 이유 : 통신비밀보호법
 보존 기간 : 3개월`;
-    obj.layerBtnDiv.insertAdjacentHTML('beforeend',`<button type="button" onclick="termsAgree()" class="layer_green_btn" disabled="true">동의</button>`);
-    popLayer(obj.layerBtnDiv);
+    layerBtnDiv.insertAdjacentHTML('beforeend',`<button type="button" onclick="termsAgree()" class="layer_green_btn" disabled="true">동의</button>`);
+    popLayer(layerBtnDiv);
 }
 
 const resetLayer = () => {    
-    obj.layerText.style.height = '2rem';
-    obj.layerText.style.margin = '0.2rem 0 1rem 0';
-    obj.layerHead.innerHTML = "";
-    obj.layerText.innerHTML = "모든 내용을 새로 작성하시겠습니까?";
+    layerText.style.height = '2rem';
+    layerText.style.margin = '0.2rem 0 1rem 0';
+    layerHead.innerHTML = "";
+    layerText.innerHTML = "모든 내용을 새로 작성하시겠습니까?";
 
-    obj.layerBtnDiv.insertAdjacentHTML('beforeend',`<button type="button" onclick="closeLayer()" class="layer_green_btn">취소</button>`);
-    obj.layerBtnDiv.insertAdjacentHTML('beforeend',`<button type="button" onclick="customReset()" class="layer_green_btn">확인</button>`);
+    layerBtnDiv.insertAdjacentHTML('beforeend',`<button type="button" onclick="closeLayer()" class="layer_green_btn">취소</button>`);
+    layerBtnDiv.insertAdjacentHTML('beforeend',`<button type="button" onclick="customReset()" class="layer_green_btn">확인</button>`);
     popLayer();
 }
 
 const registerLayer = (list) =>{
-    obj.layerText.style.height = 'auto';
-    obj.layerText.style.margin = '0.2rem 0 1rem 0';
+    layerText.style.height = 'auto';
+    layerText.style.margin = '0.2rem 0 1rem 0';
     let listText ="";
-    obj.layerHead.innerHTML = "";
+    layerHead.innerHTML = "";
 
     list.forEach(element => {
         listText += `${element}\n`;
     });
-    obj.layerText.innerHTML = listText;
-    obj.layerBtnDiv.insertAdjacentHTML('beforeend',`<button type="button" onclick="closeLayer()" class="layer_green_btn">확인</button>`);
+    layerText.innerHTML = listText;
+    layerBtnDiv.insertAdjacentHTML('beforeend',`<button type="button" onclick="closeLayer()" class="layer_green_btn">확인</button>`);
     popLayer();
 }

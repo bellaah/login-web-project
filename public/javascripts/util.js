@@ -1,12 +1,10 @@
-const myStorage = window.localStorage;
+const tagDiv = document.querySelector(".tag_div");
 
 const focusIn = () => {
-    const tagDiv = document.querySelector(".tag_div");
     tagDiv.style.borderColor='#2cb400';
 }
 
 const focusOut = () => {
-    const tagDiv = document.querySelector(".tag_div");
     tagDiv.style.borderColor='#dadada';
 }
 
@@ -48,20 +46,6 @@ const resetSpan = () => {
     });
 }
 
-const moveMain = () =>{
-    body.innerHTML = mainHTML();
-}
-
-const moveRegister = () =>{
-    body.innerHTML = signupHTML();
-    registerEventListener();
-    makeObj();
-}
-
-const moveLogin = () =>{
-    body.innerHTML = signinHTML();
-}
-
 const removeChildAll = (parent) => {
     while (parent.hasChildNodes()){
         parent.removeChild(parent.firstChild); 
@@ -78,14 +62,13 @@ const termsAgree = () => {
 
 const checkAll = () => {
     let returnValue = checkInputAll();
+    console.log(returnValue);
     if(returnValue.length == 0){   //input 모두 만족
-        localStorageSetter(document.querySelector("#name_input"));
-        moveMain();
+        window.location.href='main.html';
     }else{  //input 빈 항목이 있거나 red text가 떴을 경우
         registerLayer(returnValue);
     }
 }
-
 const checkInputAll = () => {
     const redSpan =  document.querySelectorAll(".red_text");
     let errorText = {id_check : "아이디를 형식에 맞게 입력해주세요.",
@@ -104,17 +87,4 @@ const checkInputAll = () => {
         redList.push(errorText[elem.id]);
     })
     return redList;
-}
-
-const loginClick = () => {
-    const loginIdInput = document.querySelector("#login_id_input");
-    const loginPwdInput = document.querySelector("#login_pwd_input");
-    if(loginIdInput.value !== "" && loginPwdInput.value !== ""){
-        localStorageSetter(document.querySelector("#login_id_input"));
-        moveMain();
-    }
-}
-
-const localStorageSetter = (name) => {
-    myStorage.setItem('name',name.value);
 }
