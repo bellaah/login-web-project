@@ -1,10 +1,9 @@
 # 멤버십 WEEK1 - 로그인과 회원가입 저장소
 
-### login.html
-- SPA로 동작하기 위해서 div태그를 register,login,main으로 나눠 register를 보여줄 땐 register.display만 'flex'로 지정하고 login과 main의 display는 'none'으로 바꾸도록 js에서 구현하였다.
-- #login은 bootstrap을 사용하였다.
+### /views
+- SPA로 구현하기 위해 화면이 바뀔 때마다 body에 main이면 main html 태그를 템플릿 리터럴방식으로 리턴한다. 이 템플릿 리터럴을 호출하는 곳에서 body의 innerHTML을 리턴 값으로 바꾼다.
 
-### registerCheck.js
+### inputCheck.js
 - input마다 addEventListener를 만들고 각각의 input에서 요구하는 조건에 맞게 작성하였는지 input이 발생할 때마다 확인하여 input 태그 아래에 error 혹은 pass 메세지를 보여준다.
 
 ### layer.js
