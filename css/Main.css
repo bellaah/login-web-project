@@ -1,0 +1,11 @@
+#main {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items :center;
+}
+
+#main_div > span {
+    font-size: 5rem;
+    align-self: center;
+}

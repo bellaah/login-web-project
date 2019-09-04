@@ -1,14 +1,12 @@
-const tagDiv = document.querySelector(".tag_div");
-const registerDiv = document.querySelector("#register");
-const mainDiv = document.querySelector("#main");
-const loginDiv = document.querySelector("#login");
 const myStorage = window.localStorage;
 
 const focusIn = () => {
+    const tagDiv = document.querySelector(".tag_div");
     tagDiv.style.borderColor='#2cb400';
 }
 
 const focusOut = () => {
+    const tagDiv = document.querySelector(".tag_div");
     tagDiv.style.borderColor='#dadada';
 }
 
@@ -51,24 +49,18 @@ const resetSpan = () => {
 }
 
 const moveMain = () =>{
-    const mainSpan = document.querySelector("#main_text");
-    mainSpan.innerHTML = `Hello! ${myStorage.getItem('name')}`;
-    movePage('none','none','flex');
+    body.innerHTML = mainHTML();
 }
 
 const moveRegister = () =>{
-    movePage('flex','none','none');
+    body.innerHTML = signupHTML();
+    registerEventListener();
+    makeObj();
 }
 
 const moveLogin = () =>{
-    movePage('none','flex','none');
+    body.innerHTML = signinHTML();
 }
-
- const movePage = (registerDisplay,loginDisplay,mainDisplay) => {
-    registerDiv.style.display = registerDisplay;
-    loginDiv.style.display = loginDisplay;
-    mainDiv.style.display = mainDisplay;
- }
 
 const removeChildAll = (parent) => {
     while (parent.hasChildNodes()){
@@ -126,4 +118,3 @@ const loginClick = () => {
 const localStorageSetter = (name) => {
     myStorage.setItem('name',name.value);
 }
-

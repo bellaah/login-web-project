@@ -1,50 +1,6 @@
-/* 공통 */
-span {
-    margin-top : 0.3rem;
-}
-
-input, select {
-    font-size: 0.8rem;
-}
-
-input:focus,select:focus{ 
-    outline: none !important;
-    border-color: #2cb400;
-}
-
-input,select,.tag_div {
-    height: 3.3rem;
-    border: solid 1px #dadada;
-    padding: 0.5rem;
-    background: #fff;
-}
-
-input[type=checkbox] {
-    -ms-transform: scale(1.2); /* IE */
-    -moz-transform: scale(1.2); /* FF */
-    -webkit-transform: scale(1.2); /* Safari and Chrome */
-    -o-transform: scale(1.2); /*Opera*/
-    margin-left: 0.3rem;
-    width: 1rem;
-    height: 1rem;
-    padding: 0rem;
-}
-
-::placeholder { 
-    color: #8e8e8e;
-    opacity: 1;
-}
-
-pre {
-    word-wrap: break-word;
-    white-space: pre-wrap;
-    word-break:break-all;
-}
-
-/* register */
 #register {
     position: relative;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items :center;
     font-family: Dotum,'돋움',Helvetica,sans-serif;
@@ -182,68 +138,6 @@ pre {
 
 #reset_btn {
     display: none;
-}
-
-/* login */
-#login {
-    position: relative;
-    display: flex;
-    margin-top: 20%;
-    align-self: center;
-    flex-direction: column;
-    align-items :center;
-    font-family: Dotum,'돋움',Helvetica,sans-serif;
-}
-
-#login_btn_div{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-#login_btn_div > button{
-    border-radius: 0;
-    width: 49%;
-    background-color: #2cb400;
-}
-
-#login_head {
-    color: #2cb400;
-    text-align: center;
-    margin: 0 0 1rem 0;
-}
-
-.form-signin > input {
-    border-radius: 0;
-    margin-bottom: 0.8rem;
-}
-
-.btn-block+.btn-block {
-    margin-top: 0;
-}
-
-.form-control {
-    height: 3rem;
-}
-
-.form-signin {
-    width: 50%;
-    background :#f5f6f7;
-    border: solid 1px #dadada;
-    padding: 2rem;
-}
-
-/* main */
-#main {
-    display: none;
-    position: relative;
-    flex-direction: column;
-    align-items :center;
-}
-
-#main_div > span {
-    font-size: 5rem;
-    align-self: center;
 }
 
 /* layer */

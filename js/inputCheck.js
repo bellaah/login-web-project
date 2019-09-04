@@ -268,5 +268,3 @@ const registerEventListener = () => {
     pwdChecker.registerEvent();
     termsChecker.registerEvent();
 }
-
-registerEventListener();
