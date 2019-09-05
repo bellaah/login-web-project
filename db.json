@@ -1,0 +1,15 @@
+{
+  "users": [
+    {
+      "id": "gmltjs1996",
+      "password": "Abcdefg12-",
+      "name": "희선",
+      "birthday": "1996.5.25",
+      "gender": "female",
+      "email": "gmltjs1996@naver.com",
+      "phone": "0100000000",
+      "interestList": ""
+    }
+  ],
+  "session": []
+}
