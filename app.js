@@ -15,7 +15,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-//요청이 실행됨 (http 요청이 오면 app이 처리한다.)
 app.use(logger('dev'));   
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); 
