@@ -6,9 +6,6 @@ const FileSync = require('lowdb/adapters/FileSync');
 const adapter = new FileSync('db.json');
 const db = low(adapter);
 
-db.defaults({ users:[]})
-  .write()
-
 router.post('/userCheck', (req, res) => {    //로그인 시도를 하면 db에서 확인 후 redirect해준다.
   let isUser = db.get('users')
   .find({email: req.body.email, password:req.body.password})

@@ -3,12 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const crypto = require('crypto');
-const uuidv1 = require('uuid/v1');
-const low = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
-const adapter = new FileSync('db.json');
-const db = low(adapter);
 
 var mainRouter = require('./routes/main');
 var dbCheckRouter = require('./routes/dbCheck');
@@ -28,25 +22,6 @@ app.engine('html', require('pug').renderFile);
 app.use('/main', mainRouter);
 app.use('/dbCheck', dbCheckRouter);
 
-
-app.post('/signupToMain', async(req, res) => {
-  await setCookieAndSession(req,res);
-  res.redirect('/main');
-});
-
-app.post('/signinToMain', (req, res) => {
-  setCookieAndSession(req,res);
-  res.redirect('/main');
-});
-
-const setCookieAndSession = async(req,res) => {
-  let key = uuidv1();
-  res.cookie('name',key);
-  db.get('session')
-  .push({uuid : key, name : req.body.name})
-  .write()
-  return key;
-}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
