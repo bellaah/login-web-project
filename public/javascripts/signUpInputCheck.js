@@ -22,7 +22,7 @@ const idChecker = {
         const idSpan = document.querySelector("#id_check");
         axios({
             method: 'post',
-            url: '/duplicateCheck',
+            url: '/dbCheck/duplicateCheck',
             data: {
                 id : idInput
             }

@@ -4,18 +4,15 @@ const isUser = () => {
 
     axios({
         method: 'post',
-        url: '/userCheck',
+        url: '/dbCheck/userCheck',
         data: {
           email: emailInput.value,
           password: pwdInput.value
         }
     }).then(res => {
-        console.log(res);
+        console.log(res.data);
         if(res.data){
-            console.log("로그인");
             document.forms[0].submit();
-        }else{
-            console.log("아이디와 비밀번호를 확인해주세요.");
         }
     }).catch(error => {
         console.log(error);

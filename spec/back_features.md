@@ -5,10 +5,10 @@
 - [x] express 시작
 
 # day2
-- [x] 회원가입: 유효성 통과 후 db에 저장
-- [x] 로그인: id와 password가 db에 있는 user와 일치하는지 확인
-- [x] 로그인: 로그인 유효성확인 이후 메인페이지로 redirect
-- [x] DB-1: lowDB 사용하여 DB구성
+- [x] 유효성 통과 후 db에 저장
+- [x] id와 password가 db에 있는 user와 일치하는지 확인
+- [x] 로그인 유효성확인 이후 메인페이지로 redirect
+- [x] lowDB 사용하여 DB구성
 
 # day3
 - [ ] 메인화면 UI만들기 (pug사용)

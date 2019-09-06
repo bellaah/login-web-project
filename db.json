@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "gmltjs1996",
-      "password": "Abcdefg12-",
+      "password": "Skfkrh12-",
       "name": "희선",
       "birthday": "1996.5.25",
       "gender": "female",
@@ -11,5 +11,10 @@
       "interestList": ""
     }
   ],
-  "session": []
+  "session": [
+    {
+      "uuid": "ea15e8d0-d07b-11e9-a7a3-23b2be70acb9",
+      "name": "heesun"
+    }
+  ]
 }
