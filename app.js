@@ -9,7 +9,7 @@ const adapter = new FileSync('db.json');
 const db = low(adapter);
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var mainRouter = require('./routes/main');
 var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,6 +24,8 @@ app.engine('html', require('pug').renderFile);
 
 db.defaults({ users:[]})
   .write()
+
+app.use('/main', mainRouter);
 
 app.post('/userCheck', (req, res) => {    //로그인 시도를 하면 db에서 확인 후 redirect해준다.
   let isUser = db.get('users')
@@ -67,8 +69,6 @@ app.post('/duplicateCheck', (req, res) => {
 
 
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
