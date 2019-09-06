@@ -1,32 +1,30 @@
-## day1
-- [ ] git proejct틀 만들기, git issue(features list)생성하기
-- [ ] http 프로토콜에 대한 이해 공부
-- [ ] cookie와 세션의 동작 원리 공부
-- [ ] Express 공부
+# BackEnd Features
 
-## day2
-- [ ] id 중복 체크
-- [ ] 유효성 통과 후 db에 저장
-- [ ] 유효성 통과 후 다른 페이지(login 등)로 redirect
-- [ ] db에 정보를 저장할 시, password 암호화
-    - SHA512 이용
+# day1
+- [x] feartures 정리
+- [x] git project, issue 생성
+- [x] cookie 공부
+- [x] express 시작
 
-### 로그인
-- [ ] id 확인
-    - [ ] id와 password 일치 확인
-    - [ ] password를 암호화해서 전송, 암호화된 암호 끼리 비교
-- [ ] 로그인 유효성확인 이후 메인페이지로 redirect
-- [ ] 로그인 상태 cookie 저장
+# day2
+- [x] 회원가입: 유효성 통과 후 db에 저장
+- [x] 로그인: id와 password가 db에 있는 user와 일치하는지 확인
+- [x] 로그인: 로그인 유효성확인 이후 메인페이지로 redirect
+- [x] DB-1: lowDB 사용하여 DB구성
 
-## day3
-### 로그아웃
-- [ ] 저장된 cookie 삭제
+# day3
+- [ ] 메인화면 UI만들기 (pug사용)
+- [ ] 로그인 시 쿠키 저장
+- [ ] 세션만들기
+- [ ] 회원가입 시 DB를 확인하여 id중복확인 구현
+- [ ] password 암호화하여 저장
+- [ ] 로그아웃 버튼 누르면 cookie 삭제
 
-### 데이터베이스
-- option [lowdb](https://github.com/typicode/lowdb)
-
-### 배포
+# day4
+- [ ] 지정한 시간이 지나면 세션의 data 삭제
 - [ ] heroku를 이용해 배포
-- [ ] 저장소의 README.md 등에 완성된 배포 URL을 기술할 것
+- [ ] 리팩토링
 
-## day4
+# day4
+- [ ] 리팩토링
+- [ ] 공부한 개념 정리 & md쓰기
