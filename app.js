@@ -29,7 +29,6 @@ app.post('/userCheck', (req, res) => {    //로그인 시도를 하면 db에서 
   let isUser = db.get('users')
   .find({email: req.body.email, password:req.body.password})
   .value();
-  console.log(isUser);
 
   if(isUser === undefined){
     res.send(false);
@@ -45,11 +44,28 @@ app.post('/main', (req, res) => {
 });
 
 app.post('/registerUser', (req, res) => {
-  console.log(req.body);
   db.get('users')
   .push(req.body)
   .write()
 });
+
+app.post('/duplicateCheck', (req, res) => {
+  let isUser = db.get('users')
+  .find({id:req.body.id})
+  .value();
+
+  if(isUser === undefined){
+    res.send(false);
+  }else{
+    res.send(true);
+  }
+});
+
+
+
+
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
