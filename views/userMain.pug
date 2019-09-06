@@ -35,14 +35,6 @@ head
     }
 header
   h2 boostcamp
-  button#signout_btn(onclick='signout()') &#xB85C;&#xADF8;&#xC544;&#xC6C3;
+  button#signout_btn(onclick="location.href='/main/userToGuest'") &#xB85C;&#xADF8;&#xC544;&#xC6C3;
 #user_box
-  span(id='') hello! name
-script(src='https://unpkg.com/axios/dist/axios.min.js')
-script.
-  const signout = () => {
-  axios({
-  method: 'get',
-  url: '/main/userToGuest',
-  })
-  }
+  span(id='') Hello! #{name}
