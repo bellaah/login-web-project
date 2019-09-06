@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "gmltjs1996",
-      "password": "Skfkrh12-",
+      "password": "Abcdef12-",
       "name": "희선",
       "birthday": "1996.5.25",
       "gender": "female",
@@ -14,66 +14,6 @@
   "session": [
     {
       "uuid": "2d3ebbd0-d083-11e9-a95d-e74e5543fab6",
-      "name": "희선"
-    },
-    {
-      "uuid": "61a46e10-d083-11e9-a576-8d170fe7f26d",
-      "name": "희선"
-    },
-    {
-      "uuid": "75b6acb0-d083-11e9-b7aa-a94f1b2adb13",
-      "name": "희선"
-    },
-    {
-      "uuid": "803c4f00-d083-11e9-81ef-5b67186eeb1d",
-      "name": "희선"
-    },
-    {
-      "uuid": "ea6b81e0-d086-11e9-bc03-63841e6d599b",
-      "name": "희선"
-    },
-    {
-      "uuid": "fdaa6af0-d086-11e9-bc03-63841e6d599b",
-      "name": "희선"
-    },
-    {
-      "uuid": "4754e860-d087-11e9-97e3-a95ab4885584",
-      "name": "희선"
-    },
-    {
-      "uuid": "731ddc90-d087-11e9-97e3-a95ab4885584",
-      "name": "희선"
-    },
-    {
-      "uuid": "53a73ef0-d088-11e9-af4c-8f0ca6efc074",
-      "name": "희선"
-    },
-    {
-      "uuid": "8161a2e0-d088-11e9-8419-3d06f04c99ac",
-      "name": "희선"
-    },
-    {
-      "uuid": "ae9a0590-d088-11e9-b56d-c904ac5291a5",
-      "name": "희선"
-    },
-    {
-      "uuid": "fa8c9e40-d088-11e9-bd28-33f3f369a379",
-      "name": "희선"
-    },
-    {
-      "uuid": "20421750-d089-11e9-99c5-a185dad65361",
-      "name": "희선"
-    },
-    {
-      "uuid": "74c70dd0-d089-11e9-bd62-4522e1348fd5",
-      "name": "희선"
-    },
-    {
-      "uuid": "a274a080-d089-11e9-b69a-597ee31f6e95",
-      "name": "희선"
-    },
-    {
-      "uuid": "ce891ca0-d089-11e9-92cc-cbf41ec663a0",
       "name": "희선"
     }
   ]
