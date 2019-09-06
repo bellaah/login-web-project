@@ -10,7 +10,6 @@ const isUser = () => {
           password: pwdInput.value
         }
     }).then(res => {
-        console.log(res.data);
         if(res.data){
             document.forms[0].submit();
         }

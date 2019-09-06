@@ -12,11 +12,16 @@ router.get('/', function(req, res, next) {
   .find({uuid : req.cookies.uuid})
   .value()
 
-  res.render('main', { name : sessionData.name });
+  res.render('userMain', { name : sessionData.name });
+});
+
+router.get('/userToGuest', function(req, res, next) {
+  res.clearCookie("uuid");
+  res.render('guestMain');
 });
 
 router.post('/', function(req, res, next) {
-  res.render('main');
+  res.render('guestMain');
 });
 
 router.post('/signupToMain', (req, res) => {
@@ -36,7 +41,7 @@ router.post('/signinToMain', async(req, res) => {
 const setCookieAndSession = async(res,name) => {
   let key = uuidv1();
   res.cookie('uuid',key);
-  
+
   db.get('session')
   .push({uuid : key, name : name})
   .write()

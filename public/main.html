@@ -40,11 +40,19 @@
 <body>
     <header>
         <h2>boostcamp</h2>
-        <button id="signout_btn">로그아웃</button>
+        <button id="signout_btn" onclick="signin()">로그인</button>
     </header>
     <div id="user_box">
-        <span id="">hello! name</span>
+        <span id="">로그인 해주세요</span>
     </div>
 </body>
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+   const signin = () => {
+        axios({
+            method: 'get',
+            url: '/',
+        })
+   }
+</script>
 </html>
