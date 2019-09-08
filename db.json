@@ -1,36 +1,30 @@
 {
   "users": [
     {
+      "id": "belllla",
+      "password": "PqqsUBSQ/fzi3KI6a28aC7XFVWbad4DXzijGCfF//8/7L2WEBmjTtCThIDSSIgWOGjzMO81Qs+HMb1PvJ0ed4Q==",
+      "name": "bella",
+      "birthday": "1999.4.2",
+      "gender": "female",
+      "email": "gmltjs1996@gmail.com",
+      "phone": "01000000000",
+      "interestList": "a,s,d"
+    },
+    {
       "id": "gmltjs1996",
-      "password": "Abcdef12-",
+      "password": "PqqsUBSQ/fzi3KI6a28aC7XFVWbad4DXzijGCfF//8/7L2WEBmjTtCThIDSSIgWOGjzMO81Qs+HMb1PvJ0ed4Q==",
       "name": "희선",
       "birthday": "1996.5.25",
       "gender": "female",
       "email": "gmltjs1996@naver.com",
-      "phone": "0100000000",
-      "interestList": ""
+      "phone": "01000000000",
+      "interestList": "안녕,꺄악,신난다"
     }
   ],
   "session": [
     {
-      "uuid": "2d3ebbd0-d083-11e9-a95d-e74e5543fab6",
-      "name": "희선"
-    },
-    {
-      "uuid": "7010a420-d0a9-11e9-910c-1be0359fdfd9",
-      "name": "희선"
-    },
-    {
-      "uuid": "ea501cc0-d0a9-11e9-a192-8796a60a0bdd",
-      "name": "희선"
-    },
-    {
-      "uuid": "26520d00-d0aa-11e9-a192-8796a60a0bdd",
-      "name": "희선"
-    },
-    {
-      "uuid": "85bcf8d0-d0ab-11e9-a9dd-2599e32c78ba",
-      "name": "희선"
+      "uuid": "dd360a10-d200-11e9-b5e3-f79be5c8a01d",
+      "name": "김희선"
     }
   ]
 }
