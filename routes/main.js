@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var cookieParser = require('cookie-parser');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const adapter = new FileSync('./db.json');
 const db = low(adapter);
 const uuidv1 = require('uuid/v1');
-var cookieParser = require('cookie-parser');
 const crypto = require('crypto');
 
 //디비는 한파일에서만 써야한다???? 다른파일에서 읽는 건 되지만 쓰려고 하면 써지지 않는다. (동시에) 왜일까?
@@ -60,6 +60,11 @@ const setCookieAndSession = async(res,name) => {
 router.post('/registerUser', (req, res) => {
   db.get('users')
   .push(req.body)
+  .write()
+
+  db.get('users')
+  .find({ name: req.body.name })
+  .assign({ password : crypto.createHash('sha512').update(req.body.password).digest('base64')})
   .write()
 
   res.send("success");
