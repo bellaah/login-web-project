@@ -17,6 +17,11 @@ router.get('/', function(req, res, next) {
 
 router.get('/userToGuest', function(req, res, next) {
   res.clearCookie("uuid");
+  
+  db.get('session')
+  .remove({uuid : req.cookies.uuid})
+  .write()
+
   res.render('guestMain');
 });
 
