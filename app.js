@@ -19,8 +19,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));   //public에 있는 html로 접근할 시 바로 보여준다.
 app.engine('html', require('pug').renderFile);
 
-app.use('/main', mainRouter);
 app.use('/dbCheck', dbCheckRouter);
+app.use('/main', mainRouter);
 
 
 // catch 404 and forward to error handler
