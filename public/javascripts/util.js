@@ -66,15 +66,15 @@ const termsAgree = () => {
 
 const checkAll = () => {
     let returnValue = checkInputAll();
-    console.log(returnValue);
     if(returnValue.length == 0){   //input 모두 만족
         const jsonData = makeJSON();
         axios({
             method: 'post',
-            url: '/dbCheck/registerUser',
+            url: '/main/registerUser',
             data: jsonData
+        }).then(res => {
+            document.forms[0].submit();
         })
-        document.forms[0].submit();
     }else{  //input 빈 항목이 있거나 red text가 떴을 경우
         registerLayer(returnValue);
     }
