@@ -5,10 +5,12 @@ const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const adapter = new FileSync('./db.json');
 const db = low(adapter);
+const crypto = require('crypto');
 
 router.post('/userCheck', (req, res) => {    //로그인 시도를 하면 db에서 확인 후 redirect해준다.
+  console.log(crypto.createHash('sha512').update(req.body.password).digest('base64'));
   let isUser = db.get('users')
-  .find({email: req.body.email, password:req.body.password})
+  .find({email: req.body.email, password: crypto.createHash('sha512').update(req.body.password).digest('base64')})
   .value();
 
   isUndefined(isUser,res);
