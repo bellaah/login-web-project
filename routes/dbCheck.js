@@ -3,7 +3,7 @@ var router = express.Router();
 var cookieParser = require('cookie-parser');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
-const adapter = new FileSync('db.json');
+const adapter = new FileSync('./db.json');
 const db = low(adapter);
 
 router.post('/userCheck', (req, res) => {    //로그인 시도를 하면 db에서 확인 후 redirect해준다.
@@ -21,13 +21,6 @@ router.post('/duplicateCheck', (req, res) => {
 
   isUndefined(isUser,res);
 });
-
-router.post('/registerUser', (req, res) => {
-  db.get('users')
-  .push(req.body)
-  .write()
-});
-
 
 const isUndefined = (isUser,res) => {
   if(isUser === undefined){
