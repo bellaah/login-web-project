@@ -50,7 +50,7 @@ router.post('/signupToMain', (req, res) => {
  */
 router.post('/signinToMain', async(req, res) => {
   let userJSON = db.get('users')
-  .find({email : req.body.email})
+  .find({id : req.body.id})
   .value();
 
   await setCookieAndSession(res, userJSON.name);

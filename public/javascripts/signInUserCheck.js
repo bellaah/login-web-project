@@ -1,5 +1,5 @@
 const isUser = () => {
-    const emailInput = document.querySelector("#login_id_input");
+    const idInput = document.querySelector("#login_id_input");
     const pwdInput = document.querySelector("#login_pwd_input");
     const errorMsg = document.querySelector("#red_text");
 
@@ -7,7 +7,7 @@ const isUser = () => {
         method: 'post',
         url: '/dbCheck/userCheck',
         data: {
-          email: emailInput.value,
+          id: idInput.value,
           password: pwdInput.value
         }
     }).then(res => {

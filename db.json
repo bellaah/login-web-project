@@ -31,5 +31,11 @@
       "interestList": "테스트,아침,비와요"
     }
   ],
-  "session": []
+  "session": [
+    {
+      "uuid": "cc060c50-d2db-11e9-a41d-d17506d0678e",
+      "name": "희선2",
+      "expires": 1568021307416
+    }
+  ]
 }

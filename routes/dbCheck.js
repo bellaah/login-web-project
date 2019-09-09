@@ -8,7 +8,7 @@ var db = require('./db.js');
  * 넘겨받은 email과 password를 isUndefined()메서드의 파라미터로 줘서 확인하게 한다.
  */
 router.post('/userCheck', (req, res) => {   
-  let jsonData = {email: req.body.email, password: crypto.createHash('sha512').update(req.body.password).digest('base64')};
+  let jsonData = {id: req.body.id, password: crypto.createHash('sha512').update(req.body.password).digest('base64')};
   isUndefined(jsonData,res);
 });
 
