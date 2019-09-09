@@ -216,7 +216,7 @@ const interestChecker = {
             this.interestCheck(interestInput);
         })
         interestInput.addEventListener("keydown", (event) =>{
-            if(interestInput.selectionStart === 0){
+            if(interestInput.selectionStart === 0 && event.KeyCode == 13){
                 this.back(event);
             }
         })

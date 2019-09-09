@@ -70,7 +70,7 @@ const checkAll = () => {
         const jsonData = makeJSON();
         axios({
             method: 'post',
-            url: '/main/registerUser',
+            url: '/dbCheck/registerUser',
             data: jsonData
         }).then(res => {
             document.forms[0].submit();
