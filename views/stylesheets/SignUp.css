@@ -17,7 +17,7 @@
     height: auto;
 }
 
-.register_form > div > label {
+.register_form > div > label { 
     font-size: 1rem;
     font-weight: 700;
     margin : 1rem 0 0.5rem;
