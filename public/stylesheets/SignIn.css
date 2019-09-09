@@ -46,3 +46,8 @@
     border: solid 1px #dadada;
     padding: 2rem;
 }
+
+#red_text {
+    display: none;
+    color: red;
+}
