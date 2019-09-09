@@ -1,23 +1,17 @@
+var db = require('./db.js');
 var express = require('express');
 var router = express.Router();
 var cookieParser = require('cookie-parser');
-const low = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
-const adapter = new FileSync('./db.json');
-const db = low(adapter);
 const uuidv1 = require('uuid/v1');
 const crypto = require('crypto');
-
-//디비는 한파일에서만 써야한다???? 다른파일에서 읽는 건 되지만 쓰려고 하면 써지지 않는다. (동시에) 왜일까?
 
 router.use(cookieParser());
 
 router.all('/', function(req, res, next) {
-  if(req.cookies.uuid){
+  if(checkLogin(req.cookies.uuid)){
     let sessionData = db.get('session')
     .find({uuid : req.cookies.uuid})
     .value();
-
     res.render('userMain', { name : sessionData.name });
   }else{
     res.render('guestMain');
@@ -48,22 +42,18 @@ router.post('/signinToMain', async(req, res) => {
   res.redirect('/main');
 });
 
-const setCookieAndSession = async(res,name) => {
+const setCookieAndSession = async(res,name) => {    //시간 지나면 session도 같이 없어지게 처리해야함, 시간은 1시간으로 변경할 것
   let key = uuidv1();
-  res.cookie('uuid',key);
+  res.cookie('uuid',key,{expires : new Date(Date.now()+10000)}); 
 
   db.get('session')
   .push({uuid : key, name : name})
   .write();
 }
 
-router.post('/registerUser', (req, res) => {
-  req.body.password = crypto.createHash('sha512').update(req.body.password).digest('base64');
-  db.get('users')
-  .push(req.body)
-  .write()
+const checkLogin = (cookie) => {
+  return cookie === undefined ? false : true;
+}
 
-  res.send("success");
-});
 
 module.exports = router;
