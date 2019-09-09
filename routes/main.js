@@ -58,13 +58,9 @@ const setCookieAndSession = async(res,name) => {
 }
 
 router.post('/registerUser', (req, res) => {
+  req.body.password = crypto.createHash('sha512').update(req.body.password).digest('base64');
   db.get('users')
   .push(req.body)
-  .write()
-
-  db.get('users')
-  .find({ name: req.body.name })
-  .assign({ password : crypto.createHash('sha512').update(req.body.password).digest('base64')})
   .write()
 
   res.send("success");
