@@ -29,13 +29,17 @@
       "email": "gmltjs1996@gmail.com",
       "phone": "01000000000",
       "interestList": "테스트,아침,비와요"
+    },
+    {
+      "id": "heesun2",
+      "password": "PqqsUBSQ/fzi3KI6a28aC7XFVWbad4DXzijGCfF//8/7L2WEBmjTtCThIDSSIgWOGjzMO81Qs+HMb1PvJ0ed4Q==",
+      "name": "bella2",
+      "birthday": "1996.5.25",
+      "gender": "female",
+      "email": "gmltjs1996@gmail.com",
+      "phone": "0100000000",
+      "interestList": "a,s,d,f,a,ddddd,d,d,d,d,d,d,d,d"
     }
   ],
-  "session": [
-    {
-      "uuid": "cc060c50-d2db-11e9-a41d-d17506d0678e",
-      "name": "희선2",
-      "expires": 1568021307416
-    }
-  ]
+  "session": []
 }
