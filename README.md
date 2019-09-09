@@ -1,6 +1,7 @@
 # BackEnd Features
 
 # https://bella-app1.herokuapp.com/
+
 # day1
 - [x] feartures 정리
 - [x] git project, issue 생성
@@ -22,9 +23,9 @@
 - [x] 로그아웃 버튼 누르면 cookie 삭제
 
 # day4
-- [ ] 지정한 시간이 지나면 세션의 data 삭제
-- [ ] heroku를 이용해 배포
-- [ ] 리팩토링
+- [x] 지정한 시간이 지나면 세션의 data 삭제
+- [x] heroku를 이용해 배포
+- [x] 리팩토링
 
 # day4
 - [ ] 리팩토링
