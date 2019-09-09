@@ -19,12 +19,17 @@
       "email": "gmltjs1996@naver.com",
       "phone": "01000000000",
       "interestList": "안녕,꺄악,신난다"
+    },
+    {
+      "id": "heesun1",
+      "password": "PqqsUBSQ/fzi3KI6a28aC7XFVWbad4DXzijGCfF//8/7L2WEBmjTtCThIDSSIgWOGjzMO81Qs+HMb1PvJ0ed4Q==",
+      "name": "희선2",
+      "birthday": "1996.5.25",
+      "gender": "female",
+      "email": "gmltjs1996@gmail.com",
+      "phone": "01000000000",
+      "interestList": "테스트,아침,비와요"
     }
   ],
-  "session": [
-    {
-      "uuid": "dd360a10-d200-11e9-b5e3-f79be5c8a01d",
-      "name": "김희선"
-    }
-  ]
+  "session": []
 }
