@@ -67,11 +67,19 @@ router.post('/signinToMain', async(req, res) => {
  */
 const setCookieAndSession = (res,name) => {    //시간 지나면 session도 같이 없어지게 처리해야함, 시간은 1시간으로 변경할 것
   let key = uuidv1();
-  res.cookie('uuid',key,{expires : new Date(Date.now()+3600000)}); 
+  res.cookie('uuid',key,{expires : new Date(Date.now()+(1000 * 60 * 60))}); 
 
   db.get('session')
-  .push({uuid : key, name : name, expires : (new Date().valueOf()+3600000)})
+  .push({uuid : key, name : name, expires : (new Date().valueOf()+(1000 * 60 * 60))})
   .write()
+}
+
+/**
+ * cookie가 있으면 true, 없으면 false를 return
+ * @param {*} cookie 
+ */
+const checkLogin = (cookie) => {
+  return cookie === undefined ? false : true;
 }
 
 /**
@@ -87,17 +95,8 @@ const checkSessionExpires = (() => {
         .write();
       }
     });
-  },600000)
+  },(1000 * 60 * 10))
 })
 checkSessionExpires();
-
-/**
- * cookie가 있으면 true, 없으면 false를 return
- * @param {*} cookie 
- */
-const checkLogin = (cookie) => {
-  return cookie === undefined ? false : true;
-}
-
 
 module.exports = router;
