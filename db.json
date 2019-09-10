@@ -41,5 +41,11 @@
       "interestList": "a,s,d,f,a,ddddd,d,d,d,d,d,d,d,d"
     }
   ],
-  "session": []
+  "session": [
+    {
+      "uuid": "9caf8220-d36b-11e9-8bb1-ff95db0ec442",
+      "name": "희선",
+      "expires": 1568083075524
+    }
+  ]
 }

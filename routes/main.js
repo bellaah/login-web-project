@@ -7,12 +7,16 @@ const uuidv1 = require('uuid/v1');
 router.use(cookieParser());
 
 /**
- * /main 으로 요청이 들어왔을 때, cookie가 있는지 없는지 확인하여 다른 화면을 보여준다.
- * checkLogin()메서드를 통해 쿠키가 있는지 확인한다.
- * cookie가 있으면 userMain을 렌더링하고 없으면 guestMain을 렌더링한다.
+ * /main 으로 요청이 들어왔을 때, cookie를 확인하는 checkCookie()를 호출한다.
  */
-router.all('/', (req, res, next) => {
-  if(checkLogin(req.cookies.uuid)){
+router.all('/', checkCookie);
+
+/**
+ * cookie가 있으면 userMain을 render하고, 없으면 guestMain을 render한다.
+ * @param {*} cookie 
+ */
+function checkCookie(req, res, next){
+  if(req.cookies.uuid !== undefined){
     let sessionData = db.get('session')
     .find({uuid : req.cookies.uuid})
     .value();
@@ -20,7 +24,7 @@ router.all('/', (req, res, next) => {
   }else{
     res.render('guestMain');
   }
-});
+}
 
 /**
  * user가 로그아웃 버튼을 누르면 요청이 들어온다.
@@ -72,14 +76,6 @@ const setCookieAndSession = (res,name) => {    //시간 지나면 session도 같
   db.get('session')
   .push({uuid : key, name : name, expires : (new Date().valueOf()+(1000 * 60 * 60))})
   .write()
-}
-
-/**
- * cookie가 있으면 true, 없으면 false를 return
- * @param {*} cookie 
- */
-const checkLogin = (cookie) => {
-  return cookie === undefined ? false : true;
 }
 
 /**
