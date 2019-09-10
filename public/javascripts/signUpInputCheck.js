@@ -43,7 +43,7 @@ const pwdChecker= {
         pwdInput.addEventListener("input", () => {
             this.pwdCheck(pwdInput);
             if(pwdConfirmInput.value !== ''){
-                this.pwdConfirmCheck(pwdConfirmInput.value);
+                this.pwdConfirmCheck(pwdConfirmInput,pwdInput);
             }
         })
         pwdConfirmInput.addEventListener("input", () => {
