@@ -1,32 +1,21 @@
-# BackEnd Features
+# 프로젝트1-login 
 
-# https://bella-app1.herokuapp.com/
+### 프로젝트 배포: https://bella-app1.herokuapp.com/
 
-# day1
-- [x] feartures 정리
-- [x] git project, issue 생성
-- [x] cookie 공부
-- [x] express 시작
+### 프로젝트 요약
+- main, signIn, signUp 페이지로 구성되었다.
+- 회원가입 시 id중복 확인, 정규식을 사용하여 input을 검사한다.
+- 사용자가 회원가입하면 db에 사용자 정보가 저장된다.
+- 또한 회원가입을 완료하면 cookie를 설정해 자동로그인되며 로그인했을 경우에도 마찬가지이다.
+- 쿠키와 세션은 지정한 시간이 지나면 사라진다.
+- 로그인할 때 db를 확인하여 회원인지 판별한다.
 
-# day2
-- [x] 회원가입: 유효성 통과 후 db에 저장
-- [x] 로그인: id와 password가 db에 있는 user와 일치하는지 확인
-- [x] 로그인: 로그인 유효성확인 이후 메인페이지로 redirect
-- [x] DB-1: lowDB 사용하여 DB구성
+### 이번 프로젝트를 진행하며 공부한 내용: docs/learning.md
 
-# day3
-- [x] 메인화면 UI만들기 (pug사용)
-- [x] 로그인 시 쿠키 저장
-- [x] 세션만들기
-- [x] 회원가입 시 DB를 확인하여 id중복확인 구현
-- [x] password 암호화하여 저장
-- [x] 로그아웃 버튼 누르면 cookie 삭제
+### 프로젝트를 진행하며 목표로 두었던 것들
+- git project를 이용하여 day별로 feature list 관리한다.
+- git project와 연동한 git issue를 생성한다.
+- commit message쓸 때 규칙을 정하고 commit log만 보고도 어떤 작업을 하였는지 알 수 있도록 messege를 남긴다. 또한 issue에 등록된 기능을 완성하였을 때는 commit message로 issue를 닫는다.
+- 공부한 내용을 md파일로 정리하고 프로젝트를 마친 후 블로그에 포스팅한다.
 
-# day4
-- [x] 지정한 시간이 지나면 세션의 data 삭제
-- [x] heroku를 이용해 배포
-- [x] 리팩토링
 
-# day5
-- [ ] 리팩토링
-- [ ] 공부한 개념 정리 & md쓰기
